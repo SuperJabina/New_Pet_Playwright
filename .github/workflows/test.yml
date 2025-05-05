@@ -19,12 +19,25 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Debug .ci_env contents
+        run: |
+          if [ -f .ci_env ]; then
+            echo "Contents of .ci_env:"
+            cat .ci_env
+          else
+            echo "No .ci_env file found"
+          fi
+
       - name: Load BROWSER_NAME
         id: load-browser-name
         run: |
           if [ -f .ci_env ]; then
             source .ci_env
-            echo "browser_name=$BROWSER_NAME" >> $GITHUB_OUTPUT
+            if [ -z "$BROWSER_NAME" ]; then
+              echo "browser_name=[\"chromium\"]" >> $GITHUB_OUTPUT
+            else
+              echo "browser_name=$BROWSER_NAME" >> $GITHUB_OUTPUT
+            fi
           else
             echo "browser_name=[\"chromium\"]" >> $GITHUB_OUTPUT
           fi
