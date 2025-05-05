@@ -1,5 +1,5 @@
 import allure
-from playwright.sync_api import expect, Locator
+from playwright.sync_api import expect
 
 from elements.base_element import BaseElement
 from tools.logger import get_logger
@@ -21,19 +21,19 @@ class Button(BaseElement):
         """
         return "button"
 
-    def check_enabled(self, locator: Locator) -> bool:
+    def check_enabled(self, nth: int = 0) -> bool:
         """
         Проверяет, что кнопка активна (включена). Используется для тестирования сценариев,
         когда кнопка должна быть доступна для клика.
 
-        :param locator: Объект типа Locator
+        :param nth: Индекс элемента
         :return: True, если элемент активен, False, если неактивен
         """
         step = f'Checking that {self.type_of} "{self.name}" is enabled'
 
         with allure.step(step):
             try:
-                expect(locator).to_be_enabled()
+                expect(self.get_locator(nth)).to_be_enabled()
                 result = f"Element {self.type_of} '{self.name}' is enabled"
                 logger.info(result)
                 allure.attach(

@@ -140,10 +140,21 @@ class BaseElement:
         """
         step = f'Получение локатора для "{self.name}" (индекс: {nth})'
         with allure.step(step):
-            logger.info(f"{step}, стратегия: {self.strategy}={self.locator_value}")
-            return self._get_base_locator().nth(nth)
+            try:
+                locator = self._get_base_locator().nth(nth)
+                if locator.count() == 0:
+                    err = f"Элемент '{self.name}' не найден (стратегия: {self.strategy}, значение: {self.locator_value})"
+                    logger.warning(f"{step}, {err}")
+                    raise ValueError(err)
+                logger.info(
+                    f"{step}, стратегия: {self.strategy}={self.locator_value}, найдено {locator.count()} элементов")
+                return locator
+            except Exception as e:
+                err = f"Ошибка получения локатора для '{self.name}': {str(e)}"
+                logger.error(f"{step}, {err}")
+                raise ValueError(err) from e
 
-    # --- Основные методы взаимодействия ---
+    # --- Основные методы взаимодействия с элементами ---
 
     def click(self, nth: int = 0) -> None:
         """Выполняет клик по элементу.
@@ -151,113 +162,23 @@ class BaseElement:
         Args:
             nth: Индекс элемента в группе
         """
-        step = f'Клик по элементу "{self.name}" (индекс: {nth})'
+        step = f'Clicking {self.type_of} "{self.name}" (индекс: {nth})'
         with allure.step(step):
             logger.info(step)
             self.get_locator(nth).click()
 
-    def fill(self, text: str, nth: int = 0) -> None:
-        """Заполняет поле ввода текстом.
-
-        Args:
-            text: Текст для ввода
-            nth: Индекс элемента в группе
-        """
-        step = f'Ввод текста "{text}" в "{self.name}" (индекс: {nth})'
-        with allure.step(step):
-            logger.info(step)
-            self.get_locator(nth).fill(text)
-
-    def is_visible(self, nth: int = 0) -> bool:
-        """Проверяет видимость элемента.
-
-        Args:
-            nth: Индекс элемента в группе
-
-        Returns:
-            bool: True если элемент видим
-        """
-        return self.get_locator(nth).is_visible()
-
-    def count(self) -> int:
-        """Возвращает количество найденных элементов.
-
-        Returns:
-            int: Количество элементов
-        """
-        return self._get_base_locator().count()
-
-    # --- Дополнительные методы ---
-
-    def hover(self, nth: int = 0) -> None:
-        """Наводит курсор на элемент.
-
-        Args:
-            nth: Индекс элемента в группе
-        """
-        self.get_locator(nth).hover()
-
-    def get_attribute(self, name: str, nth: int = 0) -> Optional[str]:
-        """Получает значение атрибута элемента.
-
-        Args:
-            name: Название атрибута
-            nth: Индекс элемента в группе
-
-        Returns:
-            Значение атрибута или None если атрибут отсутствует
-        """
-        return self.get_locator(nth).get_attribute(name)
-
-    def inner_text(self, nth: int = 0) -> str:
-        """Возвращает видимый текст элемента.
-
-        Args:
-            nth: Индекс элемента в группе
-
-        Returns:
-            Текст элемента
-        """
-        return self.get_locator(nth).inner_text()
-
-    # --- Основные методы взаимодействия с элементами ---
-
-    def click(self, locator: Locator) -> None:
-        """
-        Выполняет клик по элементу.
-
-        :param locator: Объект типа Locator
-        """
-        step = f'Clicking {self.type_of} "{self.name}"'
-        logger.debug(step)
-
-        with allure.step(step):
-            count = locator.count()
-            if count == 1:
-                try:
-                    locator.click()
-                    logger.info(f"Successfully clicked {self.type_of} '{self.name}'")
-                except Exception as e:
-                    err = f"Failed to click {self.type_of} '{self.name}' : {e}"
-                    logger.error(err)
-                    raise TimeoutError(err)
-            else:
-                err = f"Найдено {count} элементов {self.type_of} '{self.name}'. Ожидался ровно один."
-                logger.error(err)
-                raise ValueError(err)
-
-    def check_visible(self, locator: Locator) -> bool:
+    def check_visible(self, nth: int = 0) -> bool:
         """
         Проверяет, что элемент видим на странице.
 
-        :param locator: Объект типа Locator
+        :param nth: Индекс элемента
         :return: True, если элемент видим, False, если невидим
         """
         step = f'Checking that {self.type_of} "{self.name}" is visible'
 
         with allure.step(step):
             try:
-                expect(locator).to_be_visible()
+                expect(self.get_locator(nth)).to_be_visible()
                 result = f"Element {self.type_of} '{self.name}' is visible"
                 logger.info(result)
                 allure.attach(
@@ -275,18 +196,3 @@ class BaseElement:
                     attachment_type=allure.attachment_type.TEXT
                 )
                 return False
-
-    def check_have_text(self, text: str, nth: int = 0, **kwargs):
-        """
-        Проверяет, что у элемента присутствует заданный текст.
-
-        :param text: Ожидаемый текст
-        :param nth: Индекс элемента
-        :param kwargs: Аргументы для форматирования локатора
-        """
-        step = f'Checking that {self.type_of} "{self.name}" has text "{text}"'
-
-        with allure.step(step):
-            locator = self.get_locator(nth, **kwargs)
-            logger.info(step)
-            expect(locator).to_have_text(text)

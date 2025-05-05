@@ -1,0 +1,11 @@
+BROWSER_NAME=["chromium","firefox","webkit"]
+APP_URL=https://demoqa.com/
+HEADLESS=True
+WINDOW_SIZE={"width":1920,"height":1080}
+SLOW=200
+LOCAL=ru-RU
+VIDEOS_DIR=./videos
+TRACING_DIR=./tracing
+SCREENSHOTS_DIR=./screenshots
+EXPECT_TIMEOUT=5000
+REMOTE_BROWSER=wss://cdp.browserstack.com/playwright?caps={"browser":"chrome","headless":true}

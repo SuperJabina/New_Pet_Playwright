@@ -1,0 +1,8 @@
+playwright~=1.52.*
+pytest~=8.3.*
+pydantic~=2.11.*
+pydantic-settings~=2.9.*
+allure-python-commons~=2.14.*
+allure-pytest==2.14.*
+pytest-xdist==3.*
+pytest-playwright==0.7.*

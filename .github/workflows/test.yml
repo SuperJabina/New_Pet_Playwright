@@ -1,0 +1,79 @@
+name: UI tests  # Название workflow, отображается в интерфейсе GitHub Actions
+
+permissions:
+  contents: write  # Для записи в репозиторий (например, ветку gh-pages)
+  pages: write    # Для работы с GitHub Pages
+  id-token: write # Для аутентификации действий
+
+on:
+#  push:
+#    branches:
+#      - main  # Запускаем workflow при пуше в ветку main
+#  pull_request:
+#    branches:
+#      - main  # И при открытии pull request'а в main
+
+jobs:
+  run-tests:  # Джоб для запуска тестов
+    runs-on: ubuntu-latest  # Используем последнюю версию Ubuntu как CI-окружение
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4  # Клонируем репозиторий в CI-окружение
+
+      - name: Set up Python
+        uses: actions/setup-python@v5  # Устанавливаем Python
+        with:
+          python-version: '3.12'  # Указываем версию Python
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip  # Обновляем pip
+          pip install -r requirements.txt  # Устанавливаем зависимости проекта
+          playwright install --with-deps  # Устанавливаем Playwright и его зависимости
+
+      - name: Run UI tests with pytest and generate Allure results
+        run: |
+          pytest -m regression --alluredir=allure-results --numprocesses 2
+          # Запускаем тесты с меткой "regression"
+          # --alluredir=allure-results сохраняет результаты в папку allure-results
+          # --numprocesses 2 - выполняем тесты в 2 потока (ускоряет выполнение)
+
+      - name: Upload Allure results
+        if: always()  # Всегда выполняем (даже если предыдущий шаг упал)
+        uses: actions/upload-artifact@v4  # Загружаем артефакт в CI
+        with:
+          name: allure-results  # Имя артефакта
+          path: allure-results  # Путь к директории с результатами Allure
+
+  publish-report:  # Джоб для публикации отчёта
+    needs: [ run-tests ]  # Выполняется после успешного (или завершённого) run-tests
+    runs-on: ubuntu-latest  # Тоже запускается в Ubuntu
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4  # Клонируем репозиторий
+        with:
+          ref: gh-pages  # Клонируем ветку gh-pages
+          path: gh-pages  # Указываем путь, куда клонировать
+
+      - name: Download Allure results
+        uses: actions/download-artifact@v4  # Загружаем ранее загруженные результаты
+        with:
+          name: allure-results  # Имя артефакта
+          path: allure-results  # Путь куда распаковать
+
+      - name: Allure Report action from marketplace
+        uses: simple-elf/allure-report-action@v1.12  # Генерируем Allure-отчёт
+        if: always()  # Выполняем даже при ошибке
+        with:
+          allure_results: allure-results  # Путь к результатам
+          allure_history: allure-history  # Папка с историей отчётов (для графиков и сравнения)
+
+      - name: Deploy report to Github Pages
+        if: always()  # Выполняем даже если предыдущие шаги упали
+        uses: peaceiris/actions-gh-pages@v4  # Деплой на GitHub Pages
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Используем встроенный GitHub токен
+          publish_branch: gh-pages  # Ветка для публикации отчёта
+          publish_dir: allure-history  # Папка с готовым HTML отчётом
