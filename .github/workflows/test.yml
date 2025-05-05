@@ -11,12 +11,10 @@ on:
       - main
 
 jobs:
-  run-tests:
+  load-config:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        browser: ${{ fromJson(steps.load-browser-name.outputs.browser_name) }}  # Используем output из шага
-
+    outputs:
+      browser_name: ${{ steps.load-browser-name.outputs.browser_name }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -33,6 +31,17 @@ jobs:
 
       - name: Debug BROWSER_NAME
         run: echo "BROWSER_NAME=${{ steps.load-browser-name.outputs.browser_name }}"
+
+  run-tests:
+    needs: [load-config]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        browser: ${{ fromJson(needs.load-config.outputs.browser_name) }}  # Используем output из load-config
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
 
       - name: Load environment variables
         run: |
