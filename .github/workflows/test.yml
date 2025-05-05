@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        browser: ${{ fromJson(vars.BROWSER_NAME) }}
+        browser: ${{ fromJson(env.BROWSER_NAME || '["chromium"]') }}  # Значение по умолчанию, если BROWSER_NAME пустая
 
     steps:
       - name: Check out repository
@@ -23,7 +23,14 @@ jobs:
 
       - name: Load environment variables
         run: |
-          cat .ci_env >> $GITHUB_ENV
+          if [ -f .ci_env ]; then
+            cat .ci_env >> $GITHUB_ENV
+          else
+            echo "BROWSER_NAME=[\"chromium\"]" >> $GITHUB_ENV
+          fi
+
+      - name: Debug BROWSER_NAME
+        run: echo "BROWSER_NAME=$BROWSER_NAME"  # Для отладки
 
       - name: Set up Python
         uses: actions/setup-python@v5
