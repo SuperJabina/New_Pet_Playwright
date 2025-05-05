@@ -6,74 +6,84 @@ permissions:
   id-token: write # Для аутентификации действий
 
 on:
-#  push:
-#    branches:
-#      - main  # Запускаем workflow при пуше в ветку main
-#  pull_request:
-#    branches:
-#      - main  # И при открытии pull request'а в main
+  push:
+    branches:
+      - main
 
 jobs:
-  run-tests:  # Джоб для запуска тестов
-    runs-on: ubuntu-latest  # Используем последнюю версию Ubuntu как CI-окружение
+  run-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        browser: ${{ fromJson(vars.BROWSER_NAME) }}
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4  # Клонируем репозиторий в CI-окружение
+        uses: actions/checkout@v4
+
+      - name: Load environment variables
+        run: |
+          cat .ci_env >> $GITHUB_ENV
 
       - name: Set up Python
-        uses: actions/setup-python@v5  # Устанавливаем Python
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.12'  # Указываем версию Python
+          python-version: '3.13'
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip  # Обновляем pip
-          pip install -r requirements.txt  # Устанавливаем зависимости проекта
-          playwright install --with-deps  # Устанавливаем Playwright и его зависимости
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          playwright install --with-deps
 
       - name: Run UI tests with pytest and generate Allure results
+        env:
+          BROWSER_NAME: ${{ matrix.browser }}
+          URL: ${{ env.URL }}
+          WINDOW_SIZE: ${{ env.WINDOW_SIZE }}
+          SLOW: ${{ env.SLOW }}
+          TIMEOUT: ${{ env.TIMEOUT }}
+          REMOTE_BROWSER: ${{ env.REMOTE_BROWSER }}
         run: |
-          pytest -m regression --alluredir=allure-results --numprocesses 2
-          # Запускаем тесты с меткой "regression"
-          # --alluredir=allure-results сохраняет результаты в папку allure-results
-          # --numprocesses 2 - выполняем тесты в 2 потока (ускоряет выполнение)
+          pytest -m regression --alluredir=allure-results-${{ matrix.browser }} --numprocesses 2
 
       - name: Upload Allure results
-        if: always()  # Всегда выполняем (даже если предыдущий шаг упал)
-        uses: actions/upload-artifact@v4  # Загружаем артефакт в CI
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
-          name: allure-results  # Имя артефакта
-          path: allure-results  # Путь к директории с результатами Allure
+          name: allure-results-${{ matrix.browser }}
+          path: allure-results-${{ matrix.browser }}
 
-  publish-report:  # Джоб для публикации отчёта
-    needs: [ run-tests ]  # Выполняется после успешного (или завершённого) run-tests
-    runs-on: ubuntu-latest  # Тоже запускается в Ubuntu
+  publish-report:
+    needs: [run-tests]
+    runs-on: ubuntu-latest
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4  # Клонируем репозиторий
+        uses: actions/checkout@v4
         with:
-          ref: gh-pages  # Клонируем ветку gh-pages
-          path: gh-pages  # Указываем путь, куда клонировать
+          ref: gh-pages
+          path: gh-pages
 
       - name: Download Allure results
-        uses: actions/download-artifact@v4  # Загружаем ранее загруженные результаты
+        uses: actions/download-artifact@v4
         with:
-          name: allure-results  # Имя артефакта
-          path: allure-results  # Путь куда распаковать
+          path: allure-results
+        continue-on-error: true
 
       - name: Allure Report action from marketplace
-        uses: simple-elf/allure-report-action@v1.12  # Генерируем Allure-отчёт
-        if: always()  # Выполняем даже при ошибке
+        uses: simple-elf/allure-report-action@v1.12
+        if: always()
         with:
-          allure_results: allure-results  # Путь к результатам
-          allure_history: allure-history  # Папка с историей отчётов (для графиков и сравнения)
+          allure_results: allure-results
+          allure_history: allure-history
+          keep_history: true
+          keep_history_days: 30
 
       - name: Deploy report to Github Pages
-        if: always()  # Выполняем даже если предыдущие шаги упали
-        uses: peaceiris/actions-gh-pages@v4  # Деплой на GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # Используем встроенный GitHub токен
-          publish_branch: gh-pages  # Ветка для публикации отчёта
-          publish_dir: allure-history  # Папка с готовым HTML отчётом
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-history
