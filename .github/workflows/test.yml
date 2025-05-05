@@ -36,7 +36,7 @@ jobs:
             echo "TRACING_DIR=./tracing" >> .env
             echo "SCREENSHOTS_DIR=./screenshots" >> .env
             echo "EXPECT_TIMEOUT=5000" >> .env
-            echo "REMOTE_BROWSER=wss://cdp.browserstack.com/playwright?caps={\"browser\":\"chrome\",\"headless\":true}" >> .env
+            echo "REMOTE_BROWSER=${{ secrets.REMOTE_BROWSER_URL }}" >> .env
           fi
 
       - name: Debug .env contents
@@ -60,7 +60,7 @@ jobs:
           BROWSER_NAME: ${{ matrix.browser }}
         run: |
           pytest -m regression --alluredir=allure-results-${{ matrix.browser }} --numprocesses 2
-        continue-on-error: true  # Продолжать даже при провале тестов
+        continue-on-error: true
 
       - name: Upload Allure results
         if: always()
@@ -71,15 +71,27 @@ jobs:
 
   publish-report:
     runs-on: ubuntu-latest
-    # Убрали needs: [run-tests], чтобы publish-report запускался всегда
-    if: always()  # Запускаем job независимо от статуса других jobs
+    if: always()
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
         with:
+          ref: main  # Проверяем main, чтобы избежать ошибки с gh-pages
+
+      - name: Initialize gh-pages branch if it doesn't exist
+        run: |
+          git checkout --orphan gh-pages || git checkout gh-pages
+          git rm -rf .
+          git commit --allow-empty -m "Initialize gh-pages branch"
+          git push origin gh-pages || true
+
+      - name: Check out gh-pages branch
+        uses: actions/checkout@v4
+        with:
           ref: gh-pages
           path: gh-pages
+        continue-on-error: true  # Продолжать, даже если ветка не существует
 
       - name: Download Allure results
         uses: actions/download-artifact@v4
@@ -92,9 +104,8 @@ jobs:
         if: always()
         with:
           allure_results: allure-results
-          allure_history: allure-history
-          keep_history: true
-          keep_history_days: 30
+          allure_history: gh-pages/allure-history
+          keep_reports: 30  # Сохранять до 30 последних отчётов
 
       - name: Deploy report to Github Pages
         if: always()
@@ -102,4 +113,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: allure-history
+          publish_dir: gh-pages/allure-history
