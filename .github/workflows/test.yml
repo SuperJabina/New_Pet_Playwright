@@ -1,9 +1,9 @@
-name: UI tests  # Название workflow, отображается в интерфейсе GitHub Actions
+name: UI tests
 
 permissions:
-  contents: write  # Для записи в репозиторий (например, ветку gh-pages)
-  pages: write    # Для работы с GitHub Pages
-  id-token: write # Для аутентификации действий
+  contents: write
+  pages: write
+  id-token: write
 
 on:
   push:
@@ -11,56 +11,38 @@ on:
       - main
 
 jobs:
-  load-config:
-    runs-on: ubuntu-latest
-    outputs:
-      browser_name: ${{ steps.load-browser-name.outputs.browser_name }}
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Debug .ci_env contents
-        run: |
-          if [ -f .ci_env ]; then
-            echo "Contents of .ci_env:"
-            cat .ci_env
-          else
-            echo "No .ci_env file found"
-          fi
-
-      - name: Load BROWSER_NAME
-        id: load-browser-name
-        run: |
-          if [ -f .ci_env ]; then
-            source .ci_env
-            if [ -z "$BROWSER_NAME" ]; then
-              echo "browser_name=[\"chromium\"]" >> $GITHUB_OUTPUT
-            else
-              echo "browser_name=$BROWSER_NAME" >> $GITHUB_OUTPUT
-            fi
-          else
-            echo "browser_name=[\"chromium\"]" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Debug BROWSER_NAME
-        run: echo "BROWSER_NAME=${{ steps.load-browser-name.outputs.browser_name }}"
-
   run-tests:
-    needs: [load-config]
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        browser: ${{ fromJson(needs.load-config.outputs.browser_name) }}  # Используем output из load-config
+        browser: ["chromium", "firefox", "webkit"]  # Список браузеров прямо в .yml
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Load environment variables
+      - name: Copy .ci_env to .env
         run: |
           if [ -f .ci_env ]; then
-            cat .ci_env >> $GITHUB_ENV
+            cp .ci_env .env
+          else
+            echo "No .ci_env file found, creating .env with defaults"
+            echo "APP_URL=https://demoqa.com/" > .env
+            echo "HEADLESS=True" >> .env
+            echo "WINDOW_SIZE={\"width\":1920,\"height\":1080}" >> .env
+            echo "SLOW=200" >> .env
+            echo "LOCAL=ru-RU" >> .env
+            echo "VIDEOS_DIR=./videos" >> .env
+            echo "TRACING_DIR=./tracing" >> .env
+            echo "SCREENSHOTS_DIR=./screenshots" >> .env
+            echo "EXPECT_TIMEOUT=5000" >> .env
+            echo "REMOTE_BROWSER=wss://cdp.browserstack.com/playwright?caps={\"browser\":\"chrome\",\"headless\":true}" >> .env
           fi
+
+      - name: Debug .env contents
+        run: |
+          echo "Contents of .env:"
+          cat .env
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -75,12 +57,7 @@ jobs:
 
       - name: Run UI tests with pytest and generate Allure results
         env:
-          BROWSER_NAME: ${{ matrix.browser }}
-          URL: ${{ env.URL }}
-          WINDOW_SIZE: ${{ env.WINDOW_SIZE }}
-          SLOW: ${{ env.SLOW }}
-          TIMEOUT: ${{ env.TIMEOUT }}
-          REMOTE_BROWSER: ${{ env.REMOTE_BROWSER }}
+          BROWSER_NAME: ${{ matrix.browser }}  # Передаём текущий браузер из матрицы
         run: |
           pytest -m regression --alluredir=allure-results-${{ matrix.browser }} --numprocesses 2
 

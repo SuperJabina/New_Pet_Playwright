@@ -1,4 +1,3 @@
-BROWSER_NAME=["chromium","firefox","webkit"]
 APP_URL=https://demoqa.com/
 HEADLESS=True
 WINDOW_SIZE={"width":1920,"height":1080}
