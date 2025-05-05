@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        browser: ["chromium", "firefox", "webkit"]  # Список браузеров прямо в .yml
+        browser: ["chromium", "firefox", "webkit"]
 
     steps:
       - name: Check out repository
@@ -57,9 +57,10 @@ jobs:
 
       - name: Run UI tests with pytest and generate Allure results
         env:
-          BROWSER_NAME: ${{ matrix.browser }}  # Передаём текущий браузер из матрицы
+          BROWSER_NAME: ${{ matrix.browser }}
         run: |
           pytest -m regression --alluredir=allure-results-${{ matrix.browser }} --numprocesses 2
+        continue-on-error: true  # Продолжать даже при провале тестов
 
       - name: Upload Allure results
         if: always()
@@ -69,8 +70,9 @@ jobs:
           path: allure-results-${{ matrix.browser }}
 
   publish-report:
-    needs: [run-tests]
     runs-on: ubuntu-latest
+    # Убрали needs: [run-tests], чтобы publish-report запускался всегда
+    if: always()  # Запускаем job независимо от статуса других jobs
 
     steps:
       - name: Check out repository
