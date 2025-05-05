@@ -13,9 +13,26 @@ on:
 jobs:
   run-tests:
     runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Load BROWSER_NAME
+        id: load-browser-name
+        run: |
+          if [ -f .ci_env ]; then
+            source .ci_env
+            echo "browser_name=$BROWSER_NAME" >> $GITHUB_OUTPUT
+          else
+            echo "browser_name=[\"chromium\"]" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Debug BROWSER_NAME
+        run: echo "BROWSER_NAME=${{ steps.load-browser-name.outputs.browser_name }}"
+
     strategy:
       matrix:
-        browser: ${{ fromJson(env.BROWSER_NAME || '["chromium"]') }}  # Значение по умолчанию, если BROWSER_NAME пустая
+        browser: ${{ fromJson(steps.load-browser-name.outputs.browser_name) }}  # Используем output из шага
 
     steps:
       - name: Check out repository
@@ -25,12 +42,7 @@ jobs:
         run: |
           if [ -f .ci_env ]; then
             cat .ci_env >> $GITHUB_ENV
-          else
-            echo "BROWSER_NAME=[\"chromium\"]" >> $GITHUB_ENV
           fi
-
-      - name: Debug BROWSER_NAME
-        run: echo "BROWSER_NAME=$BROWSER_NAME"  # Для отладки
 
       - name: Set up Python
         uses: actions/setup-python@v5
