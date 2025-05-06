@@ -1,0 +1,1 @@
+{"d05f088290d23b35341ae1acfcf1ad98":{"statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1},"items":[{"uid":"fb649ff6111603ed","reportUrl":"https://SuperJabina.github.io/New_Pet_Playwright/32//#testresult/fb649ff6111603ed","status":"passed","time":{"start":1746538517608,"stop":1746538525333,"duration":7725}}]}}
