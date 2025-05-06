@@ -59,23 +59,41 @@ jobs:
 
       - name: Install Allure Commandline
         run: |
+          # Скачивание архива
           wget https://github.com/allure-framework/allure2/releases/download/2.30.0/allure-2.30.0.zip || { echo "Failed to download Allure"; exit 1; }
+          ls -la
+          # Распаковка во временную папку
           unzip allure-2.30.0.zip -d allure-tmp || { echo "Failed to unzip Allure"; exit 1; }
           echo "Contents of allure-tmp:"
           ls -la allure-tmp
-          mv allure-tmp/allure-2.30.0 allure || { echo "Failed to move Allure files"; exit 1; }
-          ls -la allure
-          ls -la allure/bin || { echo "allure/bin directory not found!"; exit 1; }
-          if [ -f allure/bin/allure ]; then
-            chmod +x allure/bin/allure
+          # Проверка структуры архива
+          if [ -d allure-tmp/allure-2.30.0 ]; then
+            mv allure-tmp/allure-2.30.0 allure || { echo "Failed to move Allure files"; exit 1; }
           else
-            echo "allure/bin/allure not found!"
+            echo "Directory allure-2.30.0 not found in allure-tmp!"
+            ls -la allure-tmp/*
             exit 1
           fi
+          echo "Contents of allure:"
+          ls -la allure
+          echo "Contents of allure/bin:"
+          ls -la allure/bin || { echo "allure/bin directory not found!"; exit 1; }
+          # Проверка наличия файла allure
+          if [ -f allure/bin/allure ]; then
+            chmod +x allure/bin/allure
+            echo "Allure binary found and made executable"
+          else
+            echo "allure/bin/allure not found!"
+            ls -la allure/bin
+            exit 1
+          fi
+          # Добавление пути в GITHUB_PATH
           echo "$(pwd)/allure/bin" >> $GITHUB_PATH
           echo "PATH after adding Allure: $PATH"
-          which allure || echo "Allure not found in PATH"
-          allure --version
+          # Проверка PATH
+          which allure || { echo "Allure not found in PATH after adding"; exit 1; }
+          # Проверка версии Allure
+          allure --version || { echo "Failed to run allure --version"; exit 1; }
 
       - name: Run UI tests with pytest and generate Allure results
         env:
