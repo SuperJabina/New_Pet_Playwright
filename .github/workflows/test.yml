@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         browser: ["firefox", "webkit"]
-      fail-fast: false  # Prevent cancellation of other matrix jobs if one fails
+      fail-fast: false
 
     steps:
       - name: Check out repository
@@ -55,30 +55,47 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           playwright install --with-deps
+          pip list
 
-      - name: Install Allure Commandline via npm
+      - name: Install Allure Commandline
         run: |
-            npm install -g allure-commandline
-            echo "$(npm bin -g)" >> $GITHUB_PATH
-            which allure || echo "Allure not found in PATH"
+          wget https://github.com/allure-framework/allure2/releases/download/2.30.0/allure-2.30.0.zip || { echo "Failed to download Allure"; exit 1; }
+          unzip allure-2.30.0.zip -d allure-tmp || { echo "Failed to unzip Allure"; exit 1; }
+          echo "Contents of allure-tmp:"
+          ls -la allure-tmp
+          mv allure-tmp/allure-2.30.0 allure || { echo "Failed to move Allure files"; exit 1; }
+          ls -la allure
+          ls -la allure/bin || { echo "allure/bin directory not found!"; exit 1; }
+          if [ -f allure/bin/allure ]; then
+            chmod +x allure/bin/allure
+          else
+            echo "allure/bin/allure not found!"
+            exit 1
+          fi
+          echo "$(pwd)/allure/bin" >> $GITHUB_PATH
+          echo "PATH after adding Allure: $PATH"
+          which allure || echo "Allure not found in PATH"
+          allure --version
 
       - name: Run UI tests with pytest and generate Allure results
         env:
           BROWSER_NAME: ${{ matrix.browser }}
         run: |
-          pytest -m regression --alluredir=allure-results-${{ matrix.browser }} --numprocesses 2 || echo "Tests failed, continuing..."
+          pytest -m regression --alluredir=allure-results-${{ matrix.browser }} --numprocesses 2 --verbose || echo "Tests failed, continuing..."
         continue-on-error: true
 
-      - name: Debug Allure results
+      - name: Debug pytest results
         run: |
           echo "Contents of allure-results-${{ matrix.browser }}:"
           ls -la allure-results-${{ matrix.browser }} || echo "No Allure results found"
+          find allure-results-${{ matrix.browser }} -type f -exec echo "File: {}" \; || echo "No files in allure-results-${{ matrix.browser }}"
 
       - name: Generate Allure report
         run: |
           mkdir -p allure-report-${{ matrix.browser }}
           allure generate allure-results-${{ matrix.browser }} -o allure-report-${{ matrix.browser }} --clean || echo "Failed to generate Allure report"
           ls -la allure-report-${{ matrix.browser }} || echo "No Allure report generated"
+          find allure-report-${{ matrix.browser }} -type f -exec echo "File: {}" \; || echo "No files in allure-report-${{ matrix.browser }}"
 
       - name: Upload Allure report
         if: always()
@@ -86,11 +103,13 @@ jobs:
         with:
           name: allure-report-${{ matrix.browser }}
           path: allure-report-${{ matrix.browser }}
+          retention-days: 5
         continue-on-error: true
 
   publish-report:
     runs-on: ubuntu-latest
-    if: always()
+    needs: run-tests
+    if: always() && needs.run-tests.result != 'cancelled'
 
     steps:
       - name: Check out repository
@@ -121,36 +140,46 @@ jobs:
           path: gh-pages
         continue-on-error: true
 
+      - name: List available artifacts
+        run: |
+          curl -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+               -H "Accept: application/vnd.github+json" \
+               https://api.github.com/repos/SuperJabina/New_Pet_Playwright/actions/runs/${{ github.run_id }}/artifacts
+
+      - name: Wait for artifact availability
+        run: sleep 10
+
       - name: Download Allure reports
         uses: actions/download-artifact@v4
         with:
           path: allure-reports
+          pattern: allure-report-*
+          merge-multiple: true
         continue-on-error: true
 
       - name: Debug downloaded reports
         run: |
           echo "Contents of allure-reports:"
           ls -la allure-reports || echo "No reports downloaded"
-          ls -la allure-reports/* || echo "No subdirectories in allure-reports"
+          find allure-reports -type f -exec echo "File: {}" \; || echo "No files in allure-reports"
 
       - name: Merge Allure reports
         if: always()
         run: |
           mkdir -p gh-pages/allure-history
-          # Check if reports exist before copying
-          if ls allure-reports/*/index.html >/dev/null 2>&1; then
-            for report in allure-reports/*/index.html; do
-              cp -r "$(dirname "$report")"/* gh-pages/allure-history/
-            done
+          if ls allure-reports/*.html >/dev/null 2>&1; then
+            cp -r allure-reports/* gh-pages/allure-history/
+            echo "Allure reports copied to gh-pages/allure-history"
           else
             echo "No Allure reports found to merge"
           fi
           ls -la gh-pages/allure-history || echo "No files in gh-pages/allure-history"
 
-      - name: Deploy report to Github Pages
+      - name: Deploy report to GitHub Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: gh-pages/allure-history
+        continue-on-error: true
