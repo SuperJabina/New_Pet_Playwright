@@ -89,7 +89,6 @@ jobs:
           git fetch origin gh-pages || true
           if ! git rev-parse --verify origin/gh-pages >/dev/null 2>&1; then
             git checkout --orphan gh-pages
-            git rm -rf . || true
             mkdir -p allure-history
             git add allure-history
             git commit --allow-empty -m "Initialize gh-pages branch for Allure reports"
@@ -114,7 +113,7 @@ jobs:
         if: always()
         with:
           allure_results: allure-results
-          allure_history: gh-pages/allure-history
+          allure_history: gh-pages/allure-history  # Явно указываем путь
           keep_reports: 30
 
       - name: Deploy report to Github Pages
