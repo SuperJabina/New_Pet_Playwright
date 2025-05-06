@@ -31,7 +31,7 @@ jobs:
             echo "APP_URL=https://demoqa.com/" > .env
             echo "HEADLESS=True" >> .env
             echo "WINDOW_SIZE={\"width\":1920,\"height\":1080}" >> .env
-            echo "SLOW=100" >> .env
+            echo "SLOW=200" >> .env
             echo "LOCAL=ru-RU" >> .env
             echo "VIDEOS_DIR=./videos" >> .env
             echo "TRACING_DIR=./tracing" >> .env
@@ -111,18 +111,21 @@ jobs:
           path: gh-pages
         continue-on-error: true
 
-      - name: Download Allure results
-        uses: actions/download-artifact@v4
-        with:
-          path: allure-results
-          pattern: allure-results-*
-          merge-multiple: true
-        continue-on-error: true
-
-      - name: Debug downloaded results
+      - name: Download and merge Allure results
         run: |
-          echo "Contents of allure-results:"
-          ls -la allure-results || echo "No results downloaded"
+          mkdir -p allure-results
+          # Скачиваем артефакты вручную, чтобы объединить их в одну папку
+          for artifact in allure-results-firefox allure-results-webkit; do
+            curl -L -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+                 -H "Accept: application/vnd.github+json" \
+                 "https://api.github.com/repos/SuperJabina/New_Pet_Playwright/actions/artifacts" | \
+                 jq -r ".artifacts[] | select(.name == \"$artifact\") | .archive_download_url" | \
+                 xargs -I {} curl -L -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" {} -o $artifact.zip
+            unzip -o $artifact.zip -d allure-results-tmp
+            cp -r allure-results-tmp/* allure-results/
+            rm -rf allure-results-tmp $artifact.zip
+          done
+          ls -la allure-results || echo "No Allure results downloaded"
           find allure-results -type f -exec echo "File: {}" \; || echo "No files in allure-results"
 
       - name: Generate Allure report
@@ -130,7 +133,7 @@ jobs:
         uses: simple-elf/allure-report-action@v1.8
         with:
           allure_results: allure-results
-          allure_history: allure-history
+          allure_history: gh-pages/allure-history
           gh_pages: gh-pages
         continue-on-error: true
 
@@ -140,5 +143,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: allure-history
+          publish_dir: gh-pages/allure-history
         continue-on-error: true
