@@ -55,6 +55,16 @@ jobs:
           pip install -r requirements.txt
           playwright install --with-deps
 
+      - name: Install Allure Commandline
+        run: |
+          wget https://github.com/allure-framework/allure2/releases/download/2.30.0/allure-2.30.0.zip
+          unzip allure-2.30.0.zip -d allure
+          chmod +x allure/bin/allure
+          echo "$(pwd)/allure/bin" >> $GITHUB_PATH
+          rm allure-2.30.0.zip
+          # Debug: Check if allure is available
+          which allure || echo "Allure not found in PATH"
+
       - name: Run UI tests with pytest and generate Allure results
         env:
           BROWSER_NAME: ${{ matrix.browser }}
@@ -62,12 +72,18 @@ jobs:
           pytest -m regression --alluredir=allure-results-${{ matrix.browser }} --numprocesses 2
         continue-on-error: true
 
-      - name: Upload Allure results
+      - name: Generate Allure report
+        run: |
+          mkdir -p allure-report-${{ matrix.browser }}
+          allure generate allure-results-${{ matrix.browser }} -o allure-report-${{ matrix.browser }} --clean
+          ls -la allure-report-${{ matrix.browser }}
+
+      - name: Upload Allure report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: allure-results-${{ matrix.browser }}
-          path: allure-results-${{ matrix.browser }}
+          name: allure-report-${{ matrix.browser }}
+          path: allure-report-${{ matrix.browser }}
 
   publish-report:
     runs-on: ubuntu-latest
@@ -102,48 +118,20 @@ jobs:
           path: gh-pages
         continue-on-error: true
 
-      - name: Download Allure results
+      - name: Download Allure reports
         uses: actions/download-artifact@v4
         with:
-          path: allure-results
-        continue-on-error: true
-
-      - name: Install Allure Commandline
-        run: |
-          # Download Allure
-          wget https://github.com/allure-framework/allure2/releases/download/2.30.0/allure-2.30.0.zip || { echo "Failed to download Allure"; exit 1; }
-          ls -la
-          # Verify downloaded file exists
-          if [ ! -f allure-2.30.0.zip ]; then
-            echo "Allure zip file not found!"
-            exit 1
-          fi
-          # Unzip the file
-          unzip allure-2.30.0.zip -d allure || { echo "Failed to unzip Allure"; exit 1; }
-          # Check contents of allure directory
-          ls -la allure
-          ls -la allure/bin || { echo "allure/bin directory not found!"; exit 1; }
-          # Make allure executable
-          if [ -f allure/bin/allure ]; then
-            chmod +x allure/bin/allure
-          else
-            echo "allure/bin/allure not found!"
-            exit 1
-          fi
-          # Add to PATH
-          echo "$(pwd)/allure/bin" >> $GITHUB_PATH
-          echo "PATH after adding Allure: $PATH"
-          rm allure-2.30.0.zip
-          # Debug: Check if allure is available
-          which allure || echo "Allure not found in PATH"
-
-      - name: Generate Allure report
-        run: |
-          mkdir -p gh-pages/allure-history
-          allure generate allure-results -o gh-pages/allure-history --clean
+          path: allure-reports
 
       - name: Deploy report to Github Pages
         if: always()
+        run: |
+          mkdir -p gh-pages/allure-history
+          # Merge all browser reports into a single directory
+          for report in allure-reports/*/index.html; do
+            cp -r "$(dirname "$report")"/* gh-pages/allure-history/
+          done
+          ls -la gh-pages/allure-history
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
