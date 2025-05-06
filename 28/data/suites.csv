@@ -1,2 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Tue May 06 12:21:06 GMT 2025","Tue May 06 12:21:13 GMT 2025","6881","tests","test_web_tables","TestWebTables","","","First test Web Tables","Проверка успешной авторизации пользователя"
