@@ -56,26 +56,11 @@ jobs:
           pip install -r requirements.txt
           playwright install --with-deps
 
-      - name: Install Allure Commandline
+      - name: Install Allure Commandline via npm
         run: |
-          wget https://github.com/allure-framework/allure2/releases/download/2.30.0/allure-2.30.0.zip || { echo "Failed to download Allure"; exit 1; }
-          ls -la
-          if [ ! -f allure-2.30.0.zip ]; then
-            echo "Allure zip file not found!"
-            exit 1
-          fi
-          unzip allure-2.30.0.zip -d allure || { echo "Failed to unzip Allure"; exit 1; }
-          ls -la allure
-          ls -la allure/bin || { echo "allure/bin directory not found!"; exit 1; }
-          if [ -f allure/bin/allure ]; then
-            chmod +x allure/bin/allure
-          else
-            echo "allure/bin/allure not found!"
-            exit 1
-          fi
-          echo "$(pwd)/allure/bin" >> $GITHUB_PATH
-          echo "PATH after adding Allure: $PATH"
-          which allure || echo "Allure not found in PATH"
+            npm install -g allure-commandline
+            echo "$(npm bin -g)" >> $GITHUB_PATH
+            which allure || echo "Allure not found in PATH"
 
       - name: Run UI tests with pytest and generate Allure results
         env:
