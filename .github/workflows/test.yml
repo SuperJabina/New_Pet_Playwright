@@ -31,7 +31,7 @@ jobs:
             echo "APP_URL=https://demoqa.com/" > .env
             echo "HEADLESS=True" >> .env
             echo "WINDOW_SIZE={\"width\":1920,\"height\":1080}" >> .env
-            echo "SLOW=200" >> .env
+            echo "SLOW=100" >> .env
             echo "LOCAL=ru-RU" >> .env
             echo "VIDEOS_DIR=./videos" >> .env
             echo "TRACING_DIR=./tracing" >> .env
@@ -58,24 +58,22 @@ jobs:
           pip list
 
       - name: Run UI tests with pytest and generate Allure results
-        env:
-          BROWSER_NAME: ${{ matrix.browser }}
         run: |
-          pytest -m regression --alluredir=allure-results-${{ matrix.browser }} --numprocesses 2 --verbose --allure-labels browser=${{ matrix.browser }} || echo "Tests failed, continuing..."
+          pytest -m regression --browser-name=${{ matrix.browser }} || echo "Tests failed, continuing..."
         continue-on-error: true
 
       - name: Debug pytest results
         run: |
-          echo "Contents of allure-results-${{ matrix.browser }}:"
-          ls -la allure-results-${{ matrix.browser }} || echo "No Allure results found for ${{ matrix.browser }}"
-          find allure-results-${{ matrix.browser }} -type f -exec echo "File: {}" \; -exec cat {} \; || echo "No files in allure-results-${{ matrix.browser }}"
+          echo "Contents of allure-results:"
+          ls -la allure-results || echo "No Allure results found"
+          find allure-results -type f -exec echo "File: {}" \; -exec cat {} \; || echo "No files in allure-results"
 
       - name: Upload Allure results
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: allure-results-${{ matrix.browser }}
-          path: allure-results-${{ matrix.browser }}
+          path: allure-results
           retention-days: 5
         continue-on-error: true
 
@@ -129,7 +127,7 @@ jobs:
 
       - name: Generate Allure report
         if: always()
-        uses: simple-elf/allure-report-action@v1.12
+        uses: simple-elf/allure-report-action@v1.8
         with:
           allure_results: allure-results
           allure_history: gh-pages/allure-history
