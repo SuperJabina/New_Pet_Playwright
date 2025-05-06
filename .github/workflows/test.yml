@@ -87,8 +87,11 @@ jobs:
             ls -la allure/bin
             exit 1
           fi
-          # Добавление пути в GITHUB_PATH
+          # Добавление пути в GITHUB_PATH для последующих шагов
           echo "$(pwd)/allure/bin" >> $GITHUB_PATH
+          echo "Added $(pwd)/allure/bin to GITHUB_PATH"
+          # Добавление пути в PATH для текущего шага
+          export PATH="$PATH:$(pwd)/allure/bin"
           echo "PATH after adding Allure: $PATH"
           # Проверка PATH
           which allure || { echo "Allure not found in PATH after adding"; exit 1; }
