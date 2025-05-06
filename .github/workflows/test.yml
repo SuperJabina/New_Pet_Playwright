@@ -57,73 +57,25 @@ jobs:
           playwright install --with-deps
           pip list
 
-      - name: Install Allure Commandline
-        run: |
-          # Скачивание архива
-          wget https://github.com/allure-framework/allure2/releases/download/2.30.0/allure-2.30.0.zip || { echo "Failed to download Allure"; exit 1; }
-          ls -la
-          # Распаковка во временную папку
-          unzip allure-2.30.0.zip -d allure-tmp || { echo "Failed to unzip Allure"; exit 1; }
-          echo "Contents of allure-tmp:"
-          ls -la allure-tmp
-          # Проверка структуры архива
-          if [ -d allure-tmp/allure-2.30.0 ]; then
-            mv allure-tmp/allure-2.30.0 allure || { echo "Failed to move Allure files"; exit 1; }
-          else
-            echo "Directory allure-2.30.0 not found in allure-tmp!"
-            ls -la allure-tmp/*
-            exit 1
-          fi
-          echo "Contents of allure:"
-          ls -la allure
-          echo "Contents of allure/bin:"
-          ls -la allure/bin || { echo "allure/bin directory not found!"; exit 1; }
-          # Проверка наличия файла allure
-          if [ -f allure/bin/allure ]; then
-            chmod +x allure/bin/allure
-            echo "Allure binary found and made executable"
-          else
-            echo "allure/bin/allure not found!"
-            ls -la allure/bin
-            exit 1
-          fi
-          # Добавление пути в GITHUB_PATH для последующих шагов
-          echo "$(pwd)/allure/bin" >> $GITHUB_PATH
-          echo "Added $(pwd)/allure/bin to GITHUB_PATH"
-          # Добавление пути в PATH для текущего шага
-          export PATH="$PATH:$(pwd)/allure/bin"
-          echo "PATH after adding Allure: $PATH"
-          # Проверка PATH
-          which allure || { echo "Allure not found in PATH after adding"; exit 1; }
-          # Проверка версии Allure
-          allure --version || { echo "Failed to run allure --version"; exit 1; }
-
       - name: Run UI tests with pytest and generate Allure results
         env:
           BROWSER_NAME: ${{ matrix.browser }}
         run: |
-          pytest -m regression --alluredir=allure-results-${{ matrix.browser }} --numprocesses 2 --verbose || echo "Tests failed, continuing..."
+          pytest -m regression --alluredir=allure-results-${{ matrix.browser }} --numprocesses 2 --verbose --allure-labels browser=${{ matrix.browser }} || echo "Tests failed, continuing..."
         continue-on-error: true
 
       - name: Debug pytest results
         run: |
           echo "Contents of allure-results-${{ matrix.browser }}:"
-          ls -la allure-results-${{ matrix.browser }} || echo "No Allure results found"
-          find allure-results-${{ matrix.browser }} -type f -exec echo "File: {}" \; || echo "No files in allure-results-${{ matrix.browser }}"
+          ls -la allure-results-${{ matrix.browser }} || echo "No Allure results found for ${{ matrix.browser }}"
+          find allure-results-${{ matrix.browser }} -type f -exec echo "File: {}" \; -exec cat {} \; || echo "No files in allure-results-${{ matrix.browser }}"
 
-      - name: Generate Allure report
-        run: |
-          mkdir -p allure-report-${{ matrix.browser }}
-          allure generate allure-results-${{ matrix.browser }} -o allure-report-${{ matrix.browser }} --clean || echo "Failed to generate Allure report"
-          ls -la allure-report-${{ matrix.browser }} || echo "No Allure report generated"
-          find allure-report-${{ matrix.browser }} -type f -exec echo "File: {}" \; || echo "No files in allure-report-${{ matrix.browser }}"
-
-      - name: Upload Allure report
+      - name: Upload Allure results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: allure-report-${{ matrix.browser }}
-          path: allure-report-${{ matrix.browser }}
+          name: allure-results-${{ matrix.browser }}
+          path: allure-results-${{ matrix.browser }}
           retention-days: 5
         continue-on-error: true
 
@@ -161,40 +113,28 @@ jobs:
           path: gh-pages
         continue-on-error: true
 
-      - name: List available artifacts
-        run: |
-          curl -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-               -H "Accept: application/vnd.github+json" \
-               https://api.github.com/repos/SuperJabina/New_Pet_Playwright/actions/runs/${{ github.run_id }}/artifacts
-
-      - name: Wait for artifact availability
-        run: sleep 10
-
-      - name: Download Allure reports
+      - name: Download Allure results
         uses: actions/download-artifact@v4
         with:
-          path: allure-reports
-          pattern: allure-report-*
+          path: allure-results
+          pattern: allure-results-*
           merge-multiple: true
         continue-on-error: true
 
-      - name: Debug downloaded reports
+      - name: Debug downloaded results
         run: |
-          echo "Contents of allure-reports:"
-          ls -la allure-reports || echo "No reports downloaded"
-          find allure-reports -type f -exec echo "File: {}" \; || echo "No files in allure-reports"
+          echo "Contents of allure-results:"
+          ls -la allure-results || echo "No results downloaded"
+          find allure-results -type f -exec echo "File: {}" \; || echo "No files in allure-results"
 
-      - name: Merge Allure reports
+      - name: Generate Allure report
         if: always()
-        run: |
-          mkdir -p gh-pages/allure-history
-          if ls allure-reports/*.html >/dev/null 2>&1; then
-            cp -r allure-reports/* gh-pages/allure-history/
-            echo "Allure reports copied to gh-pages/allure-history"
-          else
-            echo "No Allure reports found to merge"
-          fi
-          ls -la gh-pages/allure-history || echo "No files in gh-pages/allure-history"
+        uses: simple-elf/allure-report-action@v1.12
+        with:
+          allure_results: allure-results
+          allure_history: gh-pages/allure-history
+          gh_pages: gh-pages
+        continue-on-error: true
 
       - name: Deploy report to GitHub Pages
         if: always()
