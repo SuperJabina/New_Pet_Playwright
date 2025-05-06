@@ -1,0 +1,2 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"Проверка успешной авторизации пользователя","1755","First test Web Tables","tests","Tue May 06 11:23:22 UTC 2025","failed","Tue May 06 11:23:23 UTC 2025","TestWebTables","test_web_tables","",""
