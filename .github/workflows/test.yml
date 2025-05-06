@@ -130,7 +130,7 @@ jobs:
 
       - name: Generate Allure report
         if: always()
-        uses: simple-elf/allure-report-action@v1.12
+        uses: simple-elf/allure-report-action@v1.8
         with:
           allure_results: allure-results
           allure_history: gh-pages/allure-history
