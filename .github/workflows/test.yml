@@ -123,7 +123,7 @@ jobs:
         with:
           path: allure-reports
 
-      - name: Deploy report to Github Pages
+      - name: Merge Allure reports
         if: always()
         run: |
           mkdir -p gh-pages/allure-history
@@ -132,6 +132,9 @@ jobs:
             cp -r "$(dirname "$report")"/* gh-pages/allure-history/
           done
           ls -la gh-pages/allure-history
+
+      - name: Deploy report to Github Pages
+        if: always()
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
