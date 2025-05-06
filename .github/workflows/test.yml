@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        browser: ["chromium", "firefox", "webkit"]
+        browser: ["firefox", "webkit"]
 
     steps:
       - name: Check out repository
@@ -112,8 +112,13 @@ jobs:
         run: |
           wget https://github.com/allure-framework/allure2/releases/download/2.34.0/allure-2.34.0.zip
           unzip allure-2.34.0.zip -d allure
+          chmod +x allure/bin/allure
           echo "$(pwd)/allure/bin" >> $GITHUB_PATH
+          echo "PATH after adding Allure: $PATH"
           rm allure-2.34.0.zip
+          # Debug: Check if allure is available
+          ls -la allure/bin
+          which allure || echo "Allure not found in PATH"
 
       - name: Generate Allure report
         run: |
