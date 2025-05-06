@@ -9,8 +9,8 @@ INFO     fixtures.page_fixtures:page_fixtures.py:128 New page created
 INFO     pages.base_page:base_page.py:41 Opening the URN "./webtables"
 INFO     pages.base_page:base_page.py:44 Opened URL: https://demoqa.com/webtables
 INFO     fixtures.page_fixtures:page_fixtures.py:137 Cleaning up page fixture
-INFO     fixtures.page_fixtures:page_fixtures.py:158 Trace saved and attached for failed test: tracing/91dbc13f-86a7-4bec-acfe-e11c6964aeb8.zip
-INFO     fixtures.page_fixtures:page_fixtures.py:176 Screenshot saved and attached for failed test: screenshots/687005a1-85e5-49b9-b782-5b7ee70fec10.jpeg
-INFO     fixtures.page_fixtures:page_fixtures.py:188 Video attached for failed test: /home/runner/work/New_Pet_Playwright/New_Pet_Playwright/videos/2e816213-d88e-45c7-90b7-d26232f63d2f.webm
+INFO     fixtures.page_fixtures:page_fixtures.py:195 Tracing stopped without saving for successful test
+INFO     fixtures.page_fixtures:page_fixtures.py:202 Page closed before video deletion
+INFO     fixtures.page_fixtures:page_fixtures.py:210 Video deleted for successful test: /home/runner/work/New_Pet_Playwright/New_Pet_Playwright/videos/b9b04101-34fb-4017-9fb8-47c0506f73cb.webm
 INFO     fixtures.page_fixtures:page_fixtures.py:217 Browser context closed
 INFO     fixtures.page_fixtures:page_fixtures.py:224 Browser closed
