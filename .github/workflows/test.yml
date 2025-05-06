@@ -130,7 +130,7 @@ jobs:
         uses: simple-elf/allure-report-action@v1.8
         with:
           allure_results: allure-results
-          allure_history: gh-pages/allure-history
+          allure_history: allure-history
           gh_pages: gh-pages
         continue-on-error: true
 
@@ -140,5 +140,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: gh-pages/allure-history
+          publish_dir: allure-history
         continue-on-error: true
