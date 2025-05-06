@@ -72,7 +72,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: allure-results-${{ matrix.browser }}
+          name: allure-results
           path: allure-results
           retention-days: 5
         continue-on-error: true
@@ -111,30 +111,18 @@ jobs:
           path: gh-pages
         continue-on-error: true
 
-      - name: Download and merge Allure results
-        run: |
-          mkdir -p allure-results
-          # Скачиваем артефакты вручную, чтобы объединить их в одну папку
-          for artifact in allure-results-firefox allure-results-webkit; do
-            curl -L -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-                 -H "Accept: application/vnd.github+json" \
-                 "https://api.github.com/repos/SuperJabina/New_Pet_Playwright/actions/artifacts" | \
-                 jq -r ".artifacts[] | select(.name == \"$artifact\") | .archive_download_url" | \
-                 xargs -I {} curl -L -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" {} -o $artifact.zip
-            unzip -o $artifact.zip -d allure-results-tmp
-            cp -r allure-results-tmp/* allure-results/
-            rm -rf allure-results-tmp $artifact.zip
-          done
-          ls -la allure-results || echo "No Allure results downloaded"
-          find allure-results -type f -exec echo "File: {}" \; || echo "No files in allure-results"
+      - name: Download Allure results
+        uses: actions/download-artifact@v4  # Загружаем ранее загруженные результаты
+        with:
+          name: allure-results  # Имя артефакта
+          path: allure-results  # Путь куда распаковать
 
       - name: Generate Allure report
         if: always()
-        uses: simple-elf/allure-report-action@v1.8
+        uses: simple-elf/allure-report-action@v1.12
         with:
           allure_results: allure-results
-          allure_history: gh-pages/allure-history
-          gh_pages: gh-pages
+          allure_history: gh-pages/history
         continue-on-error: true
 
       - name: Deploy report to GitHub Pages
@@ -143,5 +131,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: gh-pages/allure-history
+          publish_dir: history
         continue-on-error: true
