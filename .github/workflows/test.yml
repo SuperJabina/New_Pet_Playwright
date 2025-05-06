@@ -108,13 +108,10 @@ jobs:
           path: allure-results
         continue-on-error: true
 
-      - name: Allure Report action from marketplace
-        uses: simple-elf/allure-report-action@v1.12
-        if: always()
-        with:
-          allure_results: allure-results
-          allure_history: gh-pages/allure-history  # Явно указываем путь
-          keep_reports: 30
+      - name: Generate Allure report
+        run: |
+          mkdir -p gh-pages/allure-history
+          allure generate allure-results -o gh-pages/allure-history --clean
 
       - name: Deploy report to Github Pages
         if: always()
