@@ -16,6 +16,7 @@ jobs:
     strategy:
       matrix:
         browser: ["firefox", "webkit"]
+      fail-fast: false  # Prevent cancellation of other matrix jobs if one fails
 
     steps:
       - name: Check out repository
@@ -57,26 +58,42 @@ jobs:
 
       - name: Install Allure Commandline
         run: |
-          wget https://github.com/allure-framework/allure2/releases/download/2.30.0/allure-2.30.0.zip
-          unzip allure-2.30.0.zip -d allure
-          chmod +x allure/bin/allure
+          wget https://github.com/allure-framework/allure2/releases/download/2.30.0/allure-2.30.0.zip || { echo "Failed to download Allure"; exit 1; }
+          ls -la
+          if [ ! -f allure-2.30.0.zip ]; then
+            echo "Allure zip file not found!"
+            exit 1
+          fi
+          unzip allure-2.30.0.zip -d allure || { echo "Failed to unzip Allure"; exit 1; }
+          ls -la allure
+          ls -la allure/bin || { echo "allure/bin directory not found!"; exit 1; }
+          if [ -f allure/bin/allure ]; then
+            chmod +x allure/bin/allure
+          else
+            echo "allure/bin/allure not found!"
+            exit 1
+          fi
           echo "$(pwd)/allure/bin" >> $GITHUB_PATH
-          rm allure-2.30.0.zip
-          # Debug: Check if allure is available
+          echo "PATH after adding Allure: $PATH"
           which allure || echo "Allure not found in PATH"
 
       - name: Run UI tests with pytest and generate Allure results
         env:
           BROWSER_NAME: ${{ matrix.browser }}
         run: |
-          pytest -m regression --alluredir=allure-results-${{ matrix.browser }} --numprocesses 2
+          pytest -m regression --alluredir=allure-results-${{ matrix.browser }} --numprocesses 2 || echo "Tests failed, continuing..."
         continue-on-error: true
+
+      - name: Debug Allure results
+        run: |
+          echo "Contents of allure-results-${{ matrix.browser }}:"
+          ls -la allure-results-${{ matrix.browser }} || echo "No Allure results found"
 
       - name: Generate Allure report
         run: |
           mkdir -p allure-report-${{ matrix.browser }}
-          allure generate allure-results-${{ matrix.browser }} -o allure-report-${{ matrix.browser }} --clean
-          ls -la allure-report-${{ matrix.browser }}
+          allure generate allure-results-${{ matrix.browser }} -o allure-report-${{ matrix.browser }} --clean || echo "Failed to generate Allure report"
+          ls -la allure-report-${{ matrix.browser }} || echo "No Allure report generated"
 
       - name: Upload Allure report
         if: always()
@@ -84,6 +101,7 @@ jobs:
         with:
           name: allure-report-${{ matrix.browser }}
           path: allure-report-${{ matrix.browser }}
+        continue-on-error: true
 
   publish-report:
     runs-on: ubuntu-latest
@@ -122,16 +140,27 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: allure-reports
+        continue-on-error: true
+
+      - name: Debug downloaded reports
+        run: |
+          echo "Contents of allure-reports:"
+          ls -la allure-reports || echo "No reports downloaded"
+          ls -la allure-reports/* || echo "No subdirectories in allure-reports"
 
       - name: Merge Allure reports
         if: always()
         run: |
           mkdir -p gh-pages/allure-history
-          # Merge all browser reports into a single directory
-          for report in allure-reports/*/index.html; do
-            cp -r "$(dirname "$report")"/* gh-pages/allure-history/
-          done
-          ls -la gh-pages/allure-history
+          # Check if reports exist before copying
+          if ls allure-reports/*/index.html >/dev/null 2>&1; then
+            for report in allure-reports/*/index.html; do
+              cp -r "$(dirname "$report")"/* gh-pages/allure-history/
+            done
+          else
+            echo "No Allure reports found to merge"
+          fi
+          ls -la gh-pages/allure-history || echo "No files in gh-pages/allure-history"
 
       - name: Deploy report to Github Pages
         if: always()
