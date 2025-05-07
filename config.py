@@ -17,7 +17,6 @@ class Settings(BaseSettings):
     Настройки применяются для конфигурации тестов Playwright, включая выбор браузера,
     URL приложения, директории для артефактов и другие параметры.
 
-    :ivar browser_name: Название браузера (chromium, firefox, webkit, remote_browser).
     :ivar app_url: Базовый URL приложения (должен быть валидным HTTP/HTTPS URL).
     :ivar headless: Режим без графического интерфейса (True для headless).
     :ivar window_size: Размер окна браузера (ширина и высота в пикселях).
@@ -73,23 +72,19 @@ class Settings(BaseSettings):
             raise
 
     @classmethod
-    def initialize(cls, browser_name: Optional[str] = None) -> Self:
+    def initialize(cls, browser_name: str) -> Self:
         """
             Инициализирует экземпляр Settings с учётом опций командной строки.
 
-            :param browser_name: Тип браузера из командной строки (приоритет над .env)
             :return: Инициализированный объект Settings
             :raises ValueError: если директории не могут быть созданы или невалидны
         """
 
         # Инициализируем словарь для параметров
-        settings_dict = {}
+        settings_dict = {'browser_name': browser_name}
 
-        # Если browser_name передан, он имеет приоритет
-        if browser_name:
-            settings_dict['browser_name'] = browser_name
         try:
             return cls(**settings_dict)
         except Exception as e:
-            logger.error(f"Failed to initialize Settings with browser_name={browser_name}: {e}")
+            logger.error(f"Failed to initialize Settings: {e}")
             raise

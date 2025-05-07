@@ -9,6 +9,7 @@ from config import Settings
 from tools.logger import get_logger
 from pathlib import Path
 from pages.web_tables_page import WebTablePage
+from tenacity import retry, stop_after_attempt, wait_fixed
 # from page_fixtures.registration_page import RegistrationPage
 
 logger = get_logger(__name__)
@@ -37,6 +38,41 @@ def pytest_runtest_makereport(item: Item, call: CallInfo) -> Generator[None, Any
     if rep.when == "call":
         item.stash[TEST_RESULT_KEY] = rep.outcome
         logger.debug(f"Saved test result for {item.nodeid}: {rep.outcome}")
+
+@retry(stop=stop_after_attempt(3), wait=wait_fixed(1))
+def safe_unlink(video_path: Path) -> None:
+    """
+    Безопасно удаляет файл с повторными попытками в случае ошибки.
+
+    Использует библиотеку `tenacity` для выполнения до трех попыток удаления файла
+    с интервалом в 1 секунду между попытками. Игнорирует ошибки, если файл не существует.
+
+    :param video_path: Путь к файлу, который нужно удалить.
+    """
+    video_path.unlink(missing_ok=True)
+
+
+def attach_video_to_allure(video_path: Path) -> None:
+    """
+    Прикрепляет видеофайл к отчету Allure.
+
+    Проверяет существование файла и прикрепляет его как вложение типа `video/webm`.
+    Логирует успешное прикрепление или ошибку.
+
+    :param video_path: Путь к видеофайлу.
+    """
+    if video_path and video_path.exists():
+        try:
+            allure.attach.file(
+                source=video_path,
+                name='auto_video',
+                attachment_type='video/webm'
+            )
+            logger.info(f"Video attached for failed test: {video_path}")
+        except Exception as e:
+            logger.error(f"Failed to attach video {video_path}: {e}")
+    else:
+        logger.info(f"No video to attach or video file not found: {video_path}")
 
 @pytest.fixture
 def page(playwright: Playwright, settings: Settings, request: pytest.FixtureRequest) -> Generator[Page, None, None]:
@@ -73,9 +109,13 @@ def page(playwright: Playwright, settings: Settings, request: pytest.FixtureRequ
     expect.set_options(timeout=settings.expect_timeout)
 
     # Проверка и создание директорий для видео, трейсов и скриншотов
-    settings.videos_dir.mkdir(exist_ok=True)
-    settings.tracing_dir.mkdir(exist_ok=True)
-    settings.screenshots_dir.mkdir(exist_ok=True)
+    for directory in (settings.videos_dir, settings.tracing_dir, settings.screenshots_dir):
+        try:
+            directory.mkdir(exist_ok=True, parents=True)
+            logger.debug(f"Directory ensured: {directory}")
+        except Exception as e:
+            logger.error(f"Failed to create directory {directory}: {e}")
+            raise
 
     # Выбор браузера в зависимости от settings.browser_name
     browser: Browser
@@ -111,12 +151,29 @@ def page(playwright: Playwright, settings: Settings, request: pytest.FixtureRequ
             f"Unsupported browser: {settings.browser_name}. Supported: chromium, firefox, webkit, remote_browser"
         )
 
+    # Добавляем параметр в Allure
+    allure.dynamic.parameter("Browser", browser.browser_type.name) # имя вызванного браузера (в имени
+    # теста и Parametrs)
+    allure.dynamic.tag(settings.browser_name) # имя браузера из settings в -> tags
+
+    # Создание уникальной директории для видео каждого воркера (для pytest-xdist)
+    worker_id = "main"
+    if request.config.getoption("--dist") and hasattr(request.config, "workerinput"):
+        worker_id = request.config.workerinput.get("workerid", "main")
+    video_dir = settings.videos_dir / worker_id
+    try:
+        video_dir.mkdir(exist_ok=True)
+        logger.debug(f"Video directory ensured for worker {worker_id}: {video_dir}")
+    except Exception as e:
+        logger.error(f"Failed to create video directory {video_dir}: {e}")
+        raise
+
     # Создание контекста браузера с настройками
     context: BrowserContext = browser.new_context(
         base_url=str(settings.app_url),
         viewport=settings.window_size,
         locale=settings.local,
-        record_video_dir=settings.videos_dir
+        record_video_dir=video_dir # Используем уникальную директорию для видео
     )
     # Включение трейсинга (снимки экрана, DOM-снапшоты, исходный код)
     context.tracing.start(screenshots=True, snapshots=True, sources=True)
@@ -177,17 +234,9 @@ def page(playwright: Playwright, settings: Settings, request: pytest.FixtureRequ
         except Exception as e:
             logger.error(f"Failed to save or attach screenshot {screenshot_file}: {e}")
 
-        # Видео только для упавших тестов
-        video_path = Path(page.video.path())
-        try:
-            allure.attach.file(
-                source=video_path,
-                name='auto_video',
-                attachment_type='video/webm'
-            )
-            logger.info(f"Video attached for failed test: {video_path}")
-        except Exception as e:
-            logger.error(f"Failed to attach video {video_path}: {e}")
+        # Прикрепление видео для упавших тестов
+        video_path = Path(page.video.path()) if page.video else None
+        attach_video_to_allure(video_path)
     else:
         # Для успешных тестов останавливаем трейсинг без сохранения
         try:
@@ -204,12 +253,15 @@ def page(playwright: Playwright, settings: Settings, request: pytest.FixtureRequ
             logger.error(f"Failed to close page: {e}")
 
         # Удаление видео для успешных или пропущенных тестов
-        video_path = Path(page.video.path())
-        try:
-            video_path.unlink(missing_ok=True)
-            logger.info(f"Video deleted for successful test: {video_path}")
-        except Exception as e:
-            logger.error(f"Failed to delete video {video_path}: {e}")
+        video_path = Path(page.video.path()) if page.video else None
+        if video_path and video_path.exists():
+            try:
+                safe_unlink(video_path)
+                logger.info(f"Video deleted for successful test: {video_path}")
+            except Exception as e:
+                logger.error(f"Failed to delete video {video_path}: {e}")
+        else:
+            logger.info(f"No video to delete or video file not found: {video_path}")
 
     # Закрытие контекста
     try:

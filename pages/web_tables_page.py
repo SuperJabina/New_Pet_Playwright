@@ -31,9 +31,8 @@ class WebTablePage(BasePage):
         # self.registration_form = RegistrationFormComponent(page)  # Форма регистрации
 
         # Элементы страницы
-        self.add_button = Button(page, "button", "Add Button", strategy="role", locator_params={"name":"Add"})  #
-        # Кнопка Add
-
+        button_locator = self.page.get_by_role("button", name="Add")
+        self.add_button = Button(page, locator=button_locator, name="Button [Add]")  #
 
     def click_add_button(self):
         """
