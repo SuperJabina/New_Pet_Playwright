@@ -1,4 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"Проверка успешной авторизации пользователя","2461","First test Web Tables","tests","Wed May 07 17:01:07 GMT 2025","passed","Wed May 07 17:01:10 GMT 2025","TestWebTables","test_web_tables","",""
-"Проверка успешной авторизации пользователя","3072","First test Web Tables","tests","Wed May 07 17:01:29 GMT 2025","passed","Wed May 07 17:01:32 GMT 2025","TestWebTables","test_web_tables","",""
-"Проверка успешной авторизации пользователя","4632","First test Web Tables","tests","Wed May 07 17:02:59 GMT 2025","passed","Wed May 07 17:03:04 GMT 2025","TestWebTables","test_web_tables","",""
