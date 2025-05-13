@@ -22,42 +22,51 @@ class Input(BaseElement):
         """
         return "input"
 
-    def get_locator(self, nth: int = 0, **kwargs) -> Locator:
-        """
-        Получает локатор для поля ввода с возможностью параметризации и выбором индекса.
-        """
-        # Вызываем родительский метод для получения базового локатора и добавляем локатор для input
-        # Может быть необходимо если на странице нужно как-то хитро получать поле ввода
-        return super().get_locator(nth, **kwargs).locator('input')
-
-    def fill(self, value: str, nth: int = 0, **kwargs):
+    def fill(self, value: str, nth: int = 0):
         """
         Заполняет поле ввода заданным значением.
 
         :param value: Значение, которое нужно ввести в поле.
         :param nth: Индекс, если на странице несколько одинаковых элементов.
-        :param kwargs: Дополнительные аргументы для параметризации локатора.
         :raises AssertionError: Если поле не найдено или не доступно для ввода.
         """
-        step = f'Fill {self.type_of} "{self.name}" to value "{value}"'
+        step = f'Filling {self.type_of} "{self.name}" to value "{value}"'
 
         with allure.step(step):
-            locator = self.get_locator(nth, **kwargs)
+            locator = self.get_locator(nth)
             logger.info(step)
             locator.fill(value)
 
-    def check_have_value(self, value: str, nth: int = 0, **kwargs):
+    def check_have_value(self, value: str, nth: int = 0) -> bool:
         """
         Проверяет, что поле ввода содержит заданное значение.
 
-        :param value: Ожидаемое значение в поле ввода.
-        :param nth: Индекс, если на странице несколько одинаковых элементов.
-        :param kwargs: Дополнительные аргументы для параметризации локатора.
-        :raises AssertionError: Если значение в поле не соответствует ожидаемому.
+        Args:
+            value: Ожидаемое значение в поле ввода.
+            nth: Индекс, если на странице несколько одинаковых элементов.
+
+        Returns:
+            bool: True, если значение совпадает.
+
+        Raises:
+            ValueError: Если элемент не видим или не удалось проверить значение.
+            AssertionError: Если значение не соответствует ожидаемому.
         """
         step = f'Checking that {self.type_of} "{self.name}" has a value "{value}"'
 
         with allure.step(step):
-            locator = self.get_locator(nth, **kwargs)
+            locator = self.get_locator(nth)
             logger.info(step)
-            expect(locator).to_have_value(value)
+            try:
+                expect(locator).to_have_value(value)
+                allure.attach(
+                    f"Value for {self.name} matches: {value}",
+                    name=f"Value Check ({self.name})",
+                    attachment_type=allure.attachment_type.TEXT
+                )
+                return True
+            except Exception as e:
+                err = f"Value check failed for {self.name}: expected '{value}', got error: {str(e)}"
+                logger.error(err)
+                allure.attach(err, name=f"Value Check Error ({self.name})", attachment_type=allure.attachment_type.TEXT)
+                raise

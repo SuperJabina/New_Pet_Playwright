@@ -19,15 +19,13 @@ class BasePage:
     - Проверка текущего URL на соответствие маршруту или регулярному выражению.
     """
 
-    def __init__(self, page: Page, settings: Settings) -> None:
+    def __init__(self, page: Page) -> None:
         """
         Инициализирует объект страницы.
 
         :param page: Экземпляр страницы Playwright для взаимодействия с браузером.
-        :param settings: Экземпляр класса Settings с конфигурацией приложения (например, app_url).
         """
         self.page = page
-        self.settings = settings
 
     def open(self, route: AppRoute) -> None:
         """
@@ -56,27 +54,15 @@ class BasePage:
             logger.info(step)
             self.page.reload(wait_until='domcontentloaded')
 
-    def check_current_url(self, expected_url: Pattern[str] | AppRoute) -> None:
+    def check_current_url(self, expected_url: Pattern[str]) -> None:
         """
-        Проверяет, что текущий URL соответствует ожидаемому маршруту или регулярному выражению.
+        Проверяет, что текущий URL соответствует ожидаемому регулярному выражению.
 
-        Если передан AppRoute, проверяется точное совпадение полного URL.
-        Если передан Pattern[str], проверяется соответствие шаблону, включающему базовый URL.
-
-        :param expected_url: Ожидаемый URL как маршрут (AppRoute) или регулярное выражение (Pattern[str]).
-        :raises AssertionError: Если текущий URL не соответствует ожидаемому.
-        :raises TimeoutError: Если проверка URL превысила таймаут.
+        :param expected_url: Ожидаемый URL как регулярное выражение (Pattern)
         """
-        if isinstance(expected_url, AppRoute):
-            full_url = f"{self.settings.app_url}{expected_url}"
-            step = f'Checking that current url is "{full_url}"'
-            with allure.step(step):
-                logger.info(step)
-                expect(self.page).to_have_url(full_url)
-        else:
-            # expected_url является Pattern[str]
-            full_url_pattern = re.compile(f"^{re.escape(str(self.settings.app_url))}{expected_url.pattern}")
-            step = f'Checking that current url matches pattern "{full_url_pattern.pattern}"'
-            with allure.step(step):
-                logger.info(step)
-                expect(self.page).to_have_url(full_url_pattern)
+        step = f'Checking that current url matches pattern "{expected_url.pattern}"'
+
+        with allure.step(step):
+            logger.info(step)
+            # Проверка соответствия текущего URL
+            expect(self.page).to_have_url(expected_url)

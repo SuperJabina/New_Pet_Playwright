@@ -42,6 +42,7 @@ class Settings(BaseSettings):
     window_size: dict = {"width": 1920, "height": 1080}
     slow: int = 0
     local: str ='ru-RU'
+    video: bool = False
     videos_dir: DirectoryPath = Path("videos")
     tracing_dir: DirectoryPath = Path("tracing")
     screenshots_dir: DirectoryPath = Path("screenshots")

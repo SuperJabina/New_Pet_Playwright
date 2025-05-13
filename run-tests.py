@@ -16,13 +16,14 @@ ALLURE_RESULTS_HISTORY_DIR = os.path.join(ALLURE_RESULTS_DIR, "history")
 ALLURE_EXECUTABLE = r"C:\Users\maxim\AppData\Roaming\npm\allure.cmd"
 
 # Список браузеров для тестирования
-browsers = ["webkit"]  # ["chromium", "firefox", "webkit", "remote_browser"]
+browsers = ["firefox"]  # ["chromium", "firefox", "webkit", "remote_browser"]
 
-# Создаём папку allure-results, если она не существует
+# for i in range(2):
+    # Создаём папку allure-results, если она не существует
 if not os.path.exists(ALLURE_RESULTS_DIR):
     os.makedirs(ALLURE_RESULTS_DIR)
 
-# Копируем историю из allure-report в allure-results, если она существует
+    # Копируем историю из allure-report в allure-results, если она существует
 if os.path.exists(ALLURE_HISTORY_DIR):
     if os.path.exists(ALLURE_RESULTS_HISTORY_DIR):
         shutil.rmtree(ALLURE_RESULTS_HISTORY_DIR)  # Удаляем старую историю в allure-results
@@ -39,6 +40,6 @@ print("\n=== Generating Allure report ===\n")
 subprocess.run([ALLURE_EXECUTABLE, "generate", ALLURE_RESULTS_DIR, "-o", ALLURE_REPORT_DIR, "--clean"])
 
 # Открываем отчёт (опционально)
-print("\n=== Opening Allure report ===\n")
-subprocess.run([ALLURE_EXECUTABLE, "open", ALLURE_REPORT_DIR])
+# print("\n=== Opening Allure report ===\n")
+# subprocess.run([ALLURE_EXECUTABLE, "open", ALLURE_REPORT_DIR])
 

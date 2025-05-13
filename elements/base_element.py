@@ -1,3 +1,5 @@
+from typing import Union, List
+
 import allure
 from playwright.sync_api import Page, Locator, expect
 from tools.logger import get_logger
@@ -54,11 +56,9 @@ class BaseElement:
         step = f'Получение локатора для "{self.name}" (индекс: {nth})'
         with allure.step(step):
             try:
+                # Ожидаем появления элемента в DOM в течение 5 секунд
+                self.locator.nth(nth).wait_for(state="attached", timeout=7000)
                 locator = self.locator.nth(nth)
-                if locator.count() == 0:
-                    err = f"Элемент '{self.name}' не найден"
-                    logger.warning(f"{step}, {err}")
-                    raise ValueError(err)
                 logger.info(f"{step}, найдено {locator.count()} элементов")
                 return locator
             except Exception as e:
@@ -76,8 +76,14 @@ class BaseElement:
         """
         step = f'Clicking {self.type_of} "{self.name}" (индекс: {nth})'
         with allure.step(step):
-            logger.info(step)
-            self.get_locator(nth).click()
+            try:
+                logger.info(step)
+                locator = self.get_locator(nth)
+                assert locator.is_enabled(), f"Element {self.name} is not enabled"
+                self.locator.click()
+            except Exception as e:
+                logger.error(f"Error clicking submit button: {e}")
+                raise
 
     def check_visible(self, nth: int = 0) -> bool:
         """
@@ -95,7 +101,7 @@ class BaseElement:
                 logger.info(result)
                 allure.attach(
                     result,
-                    name="Visibility Check",
+                    name=f"Visibility Check({self.name})",
                     attachment_type=allure.attachment_type.TEXT
                 )
                 return True
@@ -108,3 +114,77 @@ class BaseElement:
                     attachment_type=allure.attachment_type.TEXT
                 )
                 return False
+
+    def check_have_text(self, text: str, nth: int = 0):
+        """
+        Проверяет, что у элемента присутствует заданный текст.
+
+        :param text: Ожидаемый текст
+        :param nth: Индекс элемента
+        """
+        step = f'Checking that {self.type_of} "{self.name}" has text "{text}"'
+
+        with allure.step(step):
+            locator = self.get_locator(nth)
+            logger.info(step)
+            expect(locator).to_have_text(text)
+
+    def get_css_property(self, css_property, nth: int = 0):
+
+        locator = self.get_locator(nth)
+
+        # Получаем значение CSS-свойства
+        step = f'Getting CSS property {self.type_of} "{self.name}"'
+        logger.info(step)
+        try:
+            property_value = locator.evaluate(
+                """(element, cssProperty) => {
+                    return window.getComputedStyle(element).getPropertyValue(cssProperty);
+                }""",
+                css_property
+            )
+            allure.attach(
+                f'CSS property {css_property} is: {property_value}',
+                name=f"CSS Property ({self.name}, {css_property})",
+                attachment_type=allure.attachment_type.TEXT
+            )
+            return property_value
+        except Exception as e:
+            err = f'error getting CSS property {self.type_of} "{self.name}": {str(e)}'
+            logger.error(err)
+            raise Exception(err)
+
+    def get_text_from_element(self, nth: int = 0, all_elements: bool = False) -> Union[str, List[str]]:
+        """
+            Получает текст одного элемента или группы элементов.
+
+            Args:
+                nth: Индекс элемента (для одного элемента).
+                all_elements: Если True, возвращает текст всех элементов, иначе — одного.
+
+            Returns:
+                str: Текст одного элемента (если all_elements=False).
+                List[str]: Список текстов всех элементов (если all_elements=True).
+
+            Raises:
+                ValueError: Если элемент не найден или не удалось получить текст.
+            """
+        locator = self.get_locator(nth)
+        step = f'Getting text from {self.type_of} "{self.name}"'
+        logger.info(step)
+        try:
+            if all_elements:
+                texts = locator.all_inner_texts()
+            else:
+                texts = locator.inner_text()
+
+            allure.attach(
+                f'Received text from {self.name}: {texts}',
+                name=f"Text from {self.name}",
+                attachment_type=allure.attachment_type.TEXT
+            )
+            return texts
+        except Exception as e:
+            err = f'error getting text from {self.type_of} "{self.name}": {str(e)}'
+            logger.error(err)
+            raise Exception(err)

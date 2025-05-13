@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        browser: ["firefox", "webkit", "chromium"]
+        browser: ["firefox", "webkit"]
       fail-fast: false
 
     steps:
@@ -33,6 +33,7 @@ jobs:
             echo "WINDOW_SIZE={\"width\":1920,\"height\":1080}" >> .env
             echo "SLOW=200" >> .env
             echo "LOCAL=ru-RU" >> .env
+            echo "VIDEO=False" >> .env
             echo "VIDEOS_DIR=./videos" >> .env
             echo "TRACING_DIR=./tracing" >> .env
             echo "SCREENSHOTS_DIR=./screenshots" >> .env

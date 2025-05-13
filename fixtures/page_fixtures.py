@@ -173,7 +173,7 @@ def page(playwright: Playwright, settings: Settings, request: pytest.FixtureRequ
         base_url=str(settings.app_url),
         viewport=settings.window_size,
         locale=settings.local,
-        record_video_dir=video_dir # Используем уникальную директорию для видео
+        **({"record_video_dir": video_dir} if settings.video else {}) # добавляем запись видео, если включена в .env
     )
     # Включение трейсинга (снимки экрана, DOM-снапшоты, исходный код)
     context.tracing.start(screenshots=True, snapshots=True, sources=True)
@@ -278,7 +278,7 @@ def page(playwright: Playwright, settings: Settings, request: pytest.FixtureRequ
         logger.error(f"Failed to close browser: {e}")
 
 @pytest.fixture
-def webtable_page(page: Page, settings: Settings) -> WebTablePage:
+def webtable_page(page: Page) -> WebTablePage:
     """
     Фикстура для инициализации страницы Web Tables.
 
@@ -286,7 +286,7 @@ def webtable_page(page: Page, settings: Settings) -> WebTablePage:
     :param settings: Настройки проекта (экземпляр Settings).
     :return: Объект `WebTablePage` для использования в тестах.
     """
-    return WebTablePage(page=page, settings=settings)
+    return WebTablePage(page=page)
 
 # @pytest.fixture
 # def registration_page(page: Page, settings: Settings) -> RegistrationPage:
