@@ -1,1 +1,0 @@
-Actual color: {color} = Expected color: {expected_color}

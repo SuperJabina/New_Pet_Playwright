@@ -1,5 +1,0 @@
-Element text 'Title of Registration Form' is not visible: Locator expected to be visible
-Actual value: <element(s) not found> 
-Call log:
-  - LocatorAssertions.to_be_visible with timeout 5000ms
-  - waiting for locator("text=Registration Form").first

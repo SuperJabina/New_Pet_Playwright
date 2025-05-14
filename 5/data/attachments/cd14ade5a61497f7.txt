@@ -1,3 +1,0 @@
-Element text 'Title of Registration Form' is not visible: Ошибка получения локатора для 'Title of Registration Form': Locator.wait_for: Timeout 7000ms exceeded.
-Call log:
-  - waiting for locator("text=Registration Form").first
