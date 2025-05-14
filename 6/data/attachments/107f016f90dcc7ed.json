@@ -1,0 +1,15 @@
+{
+  "address": "с. Меренга, бул. 50 лет Победы, д. 3 стр. 5/1, 104810",
+  "age": "13",
+  "city": "п. Агинское (Забайк.)",
+  "company": "ООО «Крылов, Котова и Харитонов»",
+  "email": "nosovapraskovja@example.org",
+  "faker_seed": 318323,
+  "first_name": "Ян",
+  "last_name": "Савельева",
+  "middle_name": "Даниилович",
+  "password": "vi6HKzI0t!",
+  "password2": "vi6HKzI0t!",
+  "phone": "8 (055) 266-5343",
+  "salary": "114530"
+}

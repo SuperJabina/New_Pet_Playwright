@@ -1,0 +1,15 @@
+{
+  "address": "д. Алдан, наб. Карла Либкнехта, д. 48 к. 2, 321024",
+  "age": "94",
+  "city": "ст. Шахты",
+  "company": "Гаврилов Лимитед",
+  "email": "kdjachkova@example.net",
+  "faker_seed": 835026,
+  "first_name": "Амос",
+  "last_name": "Никитина",
+  "middle_name": "Аксёнович",
+  "password": "foH89rXf_o",
+  "password2": "foH89rXf_o",
+  "phone": "8 (102) 258-9441",
+  "salary": "154545"
+}

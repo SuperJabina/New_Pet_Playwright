@@ -1,0 +1,15 @@
+{
+  "address": "клх Ардон, пер. Смирнова, д. 96, 826654",
+  "age": "75",
+  "city": "г. Тверь",
+  "company": "ЗАО «Фокина-Никифоров»",
+  "email": "valerjan2018@example.net",
+  "faker_seed": 490075,
+  "first_name": "Ферапонт",
+  "last_name": "Федосеев",
+  "middle_name": "Елисеевич",
+  "password": "b8Q0TuO!+g",
+  "password2": "b8Q0TuO!+g",
+  "phone": "+7 (458) 237-1526",
+  "salary": "147816"
+}

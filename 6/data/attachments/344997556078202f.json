@@ -1,0 +1,15 @@
+{
+  "address": "п. Курган, ул. Бажова, д. 1 к. 9/7, 912273",
+  "age": "37",
+  "city": "д. Витим",
+  "company": "ИП «Герасимова, Рыбаков и Шубин»",
+  "email": "makarseliverstov@example.com",
+  "faker_seed": 556403,
+  "first_name": "Куприян",
+  "last_name": "Морозов",
+  "middle_name": "Болеславовна",
+  "password": "X$95xMoSBR",
+  "password2": "X$95xMoSBR",
+  "phone": "+7 (664) 640-33-73",
+  "salary": "172270"
+}

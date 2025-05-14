@@ -1,0 +1,15 @@
+{
+  "address": "п. Апатиты, пер. Тепличный, д. 4/9 к. 7/5, 391794",
+  "age": "30",
+  "city": "к. Кингисепп",
+  "company": "НПО «Маслов, Кудряшов и Юдин»",
+  "email": "kotovfade@example.org",
+  "faker_seed": 308314,
+  "first_name": "Анатолий",
+  "last_name": "Голубева",
+  "middle_name": "Георгиевна",
+  "password": "04uoBohx#s",
+  "password2": "04uoBohx#s",
+  "phone": "+7 042 346 0459",
+  "salary": "92841"
+}

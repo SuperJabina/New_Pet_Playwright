@@ -1,0 +1,15 @@
+{
+  "address": "п. Октябрьское (Хант.), наб. Восьмого Марта, д. 78 стр. 8/4, 536866",
+  "age": "37",
+  "city": "с. Уварово",
+  "company": "АО «Киселев-Жуков»",
+  "email": "evpraksija74@example.net",
+  "faker_seed": 966746,
+  "first_name": "Александра",
+  "last_name": "Щербаков",
+  "middle_name": "Ефимьевич",
+  "password": "R_1RtOwvU$",
+  "password2": "R_1RtOwvU$",
+  "phone": "8 (480) 088-70-52",
+  "salary": "37959"
+}

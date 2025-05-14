@@ -1,0 +1,15 @@
+{
+  "address": "ст. Орск, бул. Чапаева, д. 6/1 стр. 627, 806562",
+  "age": "69",
+  "city": "д. Верхнее Пенжино",
+  "company": "РАО «Фомин»",
+  "email": "georgi97@example.net",
+  "faker_seed": 350820,
+  "first_name": "Денис",
+  "last_name": "Сидоров",
+  "middle_name": "Вячеславовна",
+  "password": "0T)TcOUi*n",
+  "password2": "0T)TcOUi*n",
+  "phone": "+7 713 692 38 93",
+  "salary": "17921"
+}

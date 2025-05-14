@@ -1,0 +1,15 @@
+{
+  "address": "ст. Балашиха, ш. Лазо, д. 31 к. 51, 300491",
+  "age": "42",
+  "city": "п. Тулун",
+  "company": "ЗАО «Лаврентьева-Васильев»",
+  "email": "fomamerkushev@example.com",
+  "faker_seed": 670051,
+  "first_name": "Евстигней",
+  "last_name": "Кондратьева",
+  "middle_name": "Кузьминична",
+  "password": "eSPvCRSf%0",
+  "password2": "eSPvCRSf%0",
+  "phone": "+7 (464) 061-29-02",
+  "salary": "18420"
+}

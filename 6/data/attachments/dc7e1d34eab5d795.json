@@ -1,0 +1,15 @@
+{
+  "address": "клх Моздок, алл. Баумана, д. 535, 780497",
+  "age": "38",
+  "city": "к. Усть-Илимск",
+  "company": "ИП «Крюков»",
+  "email": "kiselevlev@example.org",
+  "faker_seed": 966869,
+  "first_name": "Наум",
+  "last_name": "Степанова",
+  "middle_name": "Витальевич",
+  "password": "!$+b2tCbkP",
+  "password2": "!$+b2tCbkP",
+  "phone": "8 (720) 557-61-37",
+  "salary": "54585"
+}

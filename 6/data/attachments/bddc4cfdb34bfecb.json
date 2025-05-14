@@ -1,0 +1,15 @@
+{
+  "address": "с. Нефедова, бул. Прудовой, д. 56, 960622",
+  "age": "15",
+  "city": "клх Вилюйск",
+  "company": "РАО «Осипов»",
+  "email": "shestakovanatoli@example.org",
+  "faker_seed": 68545,
+  "first_name": "Севастьян",
+  "last_name": "Сафонов",
+  "middle_name": "Гордеевич",
+  "password": "Q0hPoNrj+A",
+  "password2": "Q0hPoNrj+A",
+  "phone": "+7 412 222 11 64",
+  "salary": "15784"
+}

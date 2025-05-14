@@ -1,0 +1,15 @@
+{
+  "address": "к. Ахтубинск, алл. Чайкиной, д. 9/7 к. 620, 710373",
+  "age": "89",
+  "city": "п. Усолье Сибирское",
+  "company": "Ларионова Инкорпорэйтед",
+  "email": "selivan_1987@example.com",
+  "faker_seed": 367722,
+  "first_name": "Илья",
+  "last_name": "Орехов",
+  "middle_name": "Ярославович",
+  "password": "IM0fSilW)L",
+  "password2": "IM0fSilW)L",
+  "phone": "+7 (904) 618-3121",
+  "salary": "22156"
+}

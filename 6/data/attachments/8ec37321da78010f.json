@@ -1,0 +1,15 @@
+{
+  "address": "г. Березники, наб. Красноармейская, д. 68 стр. 40, 787411",
+  "age": "43",
+  "city": "п. Троицко-Печорск",
+  "company": "ОАО «Рыбаков Константинова»",
+  "email": "aaksenov@example.org",
+  "faker_seed": 419520,
+  "first_name": "Наталья",
+  "last_name": "Селиверстова",
+  "middle_name": "Валериевна",
+  "password": "5hk18Tbm%v",
+  "password2": "5hk18Tbm%v",
+  "phone": "8 (391) 720-8603",
+  "salary": "101450"
+}

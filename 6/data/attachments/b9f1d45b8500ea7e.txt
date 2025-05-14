@@ -1,0 +1,63 @@
+INFO     fixtures.page_fixtures:page_fixtures.py:107 Starting page fixture setup
+DEBUG    fixtures.page_fixtures:page_fixtures.py:115 Directory ensured: videos
+DEBUG    fixtures.page_fixtures:page_fixtures.py:115 Directory ensured: tracing
+DEBUG    fixtures.page_fixtures:page_fixtures.py:115 Directory ensured: screenshots
+INFO     fixtures.page_fixtures:page_fixtures.py:135 Launching Webkit browser (headless=True)
+DEBUG    fixtures.page_fixtures:page_fixtures.py:166 Video directory ensured for worker gw2: videos/gw2
+INFO     fixtures.page_fixtures:page_fixtures.py:180 Browser context created with tracing and video recording
+INFO     fixtures.page_fixtures:page_fixtures.py:183 Creating new page
+INFO     fixtures.page_fixtures:page_fixtures.py:185 New page created
+INFO     data.person_info:person_info.py:40 Generated seed: 402059
+INFO     pages.base_page:base_page.py:39 Opening the URN "./webtables"
+INFO     pages.base_page:base_page.py:42 Opened URL: https://demoqa.com/webtables
+INFO     elements.base_element:base_element.py:80 Clicking button "Button [Add]" (индекс: 0)
+INFO     elements.base_element:base_element.py:62 Получение локатора для "Button [Add]" (индекс: 0), найдено 1 элементов
+INFO     elements.base_element:base_element.py:62 Получение локатора для "Title of Registration Form" (индекс: 0), найдено 1 элементов
+INFO     elements.base_element:base_element.py:101 Element text 'Title of Registration Form' is visible
+INFO     components.registration_form_component:registration_form_component.py:87 Filling form, validating email with value: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.com
+INFO     elements.base_element:base_element.py:62 Получение локатора для "First Name field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:37 Filling input "First Name field" to value "Виктор"
+INFO     elements.base_element:base_element.py:62 Получение локатора для "Last Name field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:37 Filling input "Last Name field" to value "Елисеева"
+INFO     elements.base_element:base_element.py:62 Получение локатора для "email field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:37 Filling input "email field" to value "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.com"
+INFO     elements.base_element:base_element.py:62 Получение локатора для "age field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:37 Filling input "age field" to value "63"
+INFO     elements.base_element:base_element.py:62 Получение локатора для "salary field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:37 Filling input "salary field" to value "173769"
+INFO     elements.base_element:base_element.py:62 Получение локатора для "department field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:37 Filling input "department field" to value "ЗАО «Сергеев Суворова»"
+DEBUG    components.registration_form_component:registration_form_component.py:106 Filled text: {'first_name': 'Виктор', 'last_name': 'Елисеева', 'email': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.com', 'age': '63', 'salary': '173769', 'department': 'ЗАО «Сергеев Суворова»'}
+INFO     components.registration_form_component:registration_form_component.py:198 Checking first_name has Виктор
+INFO     elements.base_element:base_element.py:62 Получение локатора для "First Name field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:59 Checking that input "First Name field" has a value "Виктор"
+INFO     components.registration_form_component:registration_form_component.py:198 Checking last_name has Елисеева
+INFO     elements.base_element:base_element.py:62 Получение локатора для "Last Name field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:59 Checking that input "Last Name field" has a value "Елисеева"
+INFO     components.registration_form_component:registration_form_component.py:198 Checking email has aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.com
+INFO     elements.base_element:base_element.py:62 Получение локатора для "email field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:59 Checking that input "email field" has a value "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.com"
+INFO     components.registration_form_component:registration_form_component.py:198 Checking age has 63
+INFO     elements.base_element:base_element.py:62 Получение локатора для "age field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:59 Checking that input "age field" has a value "63"
+INFO     components.registration_form_component:registration_form_component.py:198 Checking salary has 173769
+INFO     elements.base_element:base_element.py:62 Получение локатора для "salary field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:59 Checking that input "salary field" has a value "173769"
+INFO     components.registration_form_component:registration_form_component.py:198 Checking department has ЗАО «Сергеев Суворова»
+INFO     elements.base_element:base_element.py:62 Получение локатора для "department field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:59 Checking that input "department field" has a value "ЗАО «Сергеев Суворова»"
+INFO     elements.base_element:base_element.py:80 Clicking button "submit button" (индекс: 0)
+INFO     elements.base_element:base_element.py:62 Получение локатора для "submit button" (индекс: 0), найдено 1 элементов
+ERROR    elements.base_element:base_element.py:66 Получение локатора для "Title of Registration Form" (индекс: 0), Ошибка получения локатора для 'Title of Registration Form': Locator.wait_for: Timeout 7000ms exceeded.
+Call log:
+  - waiting for locator("text=Registration Form").first
+
+ERROR    elements.base_element:base_element.py:110 Element text 'Title of Registration Form' is not visible: Ошибка получения локатора для 'Title of Registration Form': Locator.wait_for: Timeout 7000ms exceeded.
+Call log:
+  - waiting for locator("text=Registration Form").first
+INFO     fixtures.page_fixtures:page_fixtures.py:194 Cleaning up page fixture
+INFO     fixtures.page_fixtures:page_fixtures.py:215 Trace saved and attached for failed test: tracing/ce13dd52-e8da-4688-a5fc-4f7884d98e75.zip
+INFO     fixtures.page_fixtures:page_fixtures.py:233 Screenshot saved and attached for failed test: screenshots/87753425-1c41-4056-8312-cab0e96f6404.jpeg
+INFO     fixtures.page_fixtures:page_fixtures.py:75 No video to attach or video file not found: None
+INFO     fixtures.page_fixtures:page_fixtures.py:269 Browser context closed
+INFO     fixtures.page_fixtures:page_fixtures.py:276 Browser closed

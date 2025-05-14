@@ -1,0 +1,15 @@
+{
+  "address": "д. Волхов, пер. Энергетиков, д. 666 к. 413, 116737",
+  "age": "66",
+  "city": "с. Шенкурск",
+  "company": "Мельников Групп",
+  "email": "pzatsev@example.com",
+  "faker_seed": 559480,
+  "first_name": "Куприян",
+  "last_name": "Овчинников",
+  "middle_name": "Харитонович",
+  "password": "0yZUhGKx*g",
+  "password2": "0yZUhGKx*g",
+  "phone": "83534547973",
+  "salary": "15858"
+}

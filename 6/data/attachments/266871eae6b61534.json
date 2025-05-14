@@ -1,0 +1,15 @@
+{
+  "address": "д. Энгельс, пер. Береговой, д. 47, 267075",
+  "age": "63",
+  "city": "г. Горячинск",
+  "company": "ЗАО «Сергеев Суворова»",
+  "email": "alekseevvarfolome@example.com",
+  "faker_seed": 402059,
+  "first_name": "Виктор",
+  "last_name": "Елисеева",
+  "middle_name": "Филиппович",
+  "password": "CE6ZT@nmV+",
+  "password2": "CE6ZT@nmV+",
+  "phone": "+7 831 138 0775",
+  "salary": "173769"
+}

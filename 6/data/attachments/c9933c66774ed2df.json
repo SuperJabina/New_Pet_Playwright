@@ -1,0 +1,15 @@
+{
+  "address": "к. Кисловодск, алл. Лесная, д. 165, 987181",
+  "age": "72",
+  "city": "д. Гудермес",
+  "company": "ОАО «Денисова-Смирнова»",
+  "email": "veronika_2019@example.org",
+  "faker_seed": 613954,
+  "first_name": "Аскольд",
+  "last_name": "Быкова",
+  "middle_name": "Дорофеевич",
+  "password": "AgJ*8Nyqof",
+  "password2": "AgJ*8Nyqof",
+  "phone": "8 (428) 429-63-52",
+  "salary": "157318"
+}

@@ -1,0 +1,15 @@
+{
+  "address": "д. Новосибирск, алл. Механизаторов, д. 6/2 к. 3/3, 757641",
+  "age": "75",
+  "city": "г. Шуя",
+  "company": "ЗАО «Крылова, Ермакова и Петрова»",
+  "email": "pavelbogdanov@example.net",
+  "faker_seed": 34550,
+  "first_name": "Христофор",
+  "last_name": "Дроздова",
+  "middle_name": "Кузьминична",
+  "password": "d@wo1He_(S",
+  "password2": "d@wo1He_(S",
+  "phone": "85222473341",
+  "salary": "44808"
+}

@@ -1,0 +1,15 @@
+{
+  "address": "д. Калачинск, наб. Песчаная, д. 6/7 к. 11, 196407",
+  "age": "83",
+  "city": "ст. Лотошино",
+  "company": "РАО «Михайлов, Рогов и Колесников»",
+  "email": "ermil_1977@example.org",
+  "faker_seed": 923403,
+  "first_name": "Валентин",
+  "last_name": "Павлова",
+  "middle_name": "Филимонович",
+  "password": "44)i0MyfVm",
+  "password2": "44)i0MyfVm",
+  "phone": "8 (929) 802-6098",
+  "salary": "23515"
+}

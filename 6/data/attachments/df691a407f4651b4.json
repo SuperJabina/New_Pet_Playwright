@@ -1,0 +1,15 @@
+{
+  "address": "д. Зеленогорск (Ленин.), пр. Пожарского, д. 62 стр. 2, 450408",
+  "age": "81",
+  "city": "ст. Сургут (Хант.)",
+  "company": "НПО «Игнатьева»",
+  "email": "maksimovarkadi@example.com",
+  "faker_seed": 890888,
+  "first_name": "Клавдий",
+  "last_name": "Молчанов",
+  "middle_name": "Ааронович",
+  "password": "1tD#QSrp(D",
+  "password2": "1tD#QSrp(D",
+  "phone": "+7 (884) 964-2996",
+  "salary": "35346"
+}

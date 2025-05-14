@@ -1,0 +1,15 @@
+{
+  "address": "д. Ивдель, пр. Шаумяна, д. 660 к. 175, 977071",
+  "age": "45",
+  "city": "ст. Белорецк",
+  "company": "ЗАО «Лебедев-Меркушев»",
+  "email": "agapgorbachev@example.net",
+  "faker_seed": 160090,
+  "first_name": "Денис",
+  "last_name": "Мамонтова",
+  "middle_name": "Эдгардович",
+  "password": "CHLRzaKD%7",
+  "password2": "CHLRzaKD%7",
+  "phone": "8 (481) 500-4132",
+  "salary": "130812"
+}

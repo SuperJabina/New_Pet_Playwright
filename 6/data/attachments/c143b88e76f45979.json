@@ -1,0 +1,15 @@
+{
+  "address": "клх Выборг, алл. Вахитова, д. 20 к. 7/3, 603740",
+  "age": "26",
+  "city": "клх Урюпинск",
+  "company": "Стройсервис",
+  "email": "moise21@example.org",
+  "faker_seed": 4409,
+  "first_name": "Ия",
+  "last_name": "Васильев",
+  "middle_name": "Игоревич",
+  "password": "v@Q+lNKj#5",
+  "password2": "v@Q+lNKj#5",
+  "phone": "8 748 223 7708",
+  "salary": "110116"
+}

@@ -1,0 +1,15 @@
+{
+  "address": "п. Бомнак, алл. Ясная, д. 786 к. 2, 836875",
+  "age": "53",
+  "city": "клх Адлер",
+  "company": "НПО «Ильин, Костина и Рыбакова»",
+  "email": "mili89@example.com",
+  "faker_seed": 417803,
+  "first_name": "Эраст",
+  "last_name": "Шашкова",
+  "middle_name": "Семеновна",
+  "password": "^8Zkebpyh1",
+  "password2": "^8Zkebpyh1",
+  "phone": "+7 690 671 5031",
+  "salary": "149498"
+}

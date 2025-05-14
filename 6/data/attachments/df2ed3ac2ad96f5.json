@@ -1,0 +1,15 @@
+{
+  "address": "ст. Ржев, ш. Астраханское, д. 2/1 к. 2, 076420",
+  "age": "39",
+  "city": "г. Минеральные Воды",
+  "company": "Евраз",
+  "email": "izjaslav94@example.net",
+  "faker_seed": 775539,
+  "first_name": "Нина",
+  "last_name": "Игнатьев",
+  "middle_name": "Димитриевич",
+  "password": "J$3GKGR4Hm",
+  "password2": "J$3GKGR4Hm",
+  "phone": "8 (589) 744-60-84",
+  "salary": "80521"
+}

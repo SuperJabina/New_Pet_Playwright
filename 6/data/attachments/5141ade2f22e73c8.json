@@ -1,0 +1,15 @@
+{
+  "address": "г. Лотошино, пер. Западный, д. 8, 072652",
+  "age": "93",
+  "city": "клх Владимир",
+  "company": "НПО «Орлова»",
+  "email": "qsharov@example.com",
+  "faker_seed": 112658,
+  "first_name": "Василий",
+  "last_name": "Герасимова",
+  "middle_name": "Валентиновна",
+  "password": "_1@2MM#sca",
+  "password2": "_1@2MM#sca",
+  "phone": "85426102931",
+  "salary": "46719"
+}

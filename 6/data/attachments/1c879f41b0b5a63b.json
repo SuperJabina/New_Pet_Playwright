@@ -1,0 +1,15 @@
+{
+  "address": "ст. Яшкуль, наб. Микрорайон, д. 1/1, 256953",
+  "age": "78",
+  "city": "п. Губкинский",
+  "company": "ЗАО «Игнатьева Филиппов»",
+  "email": "feliks2018@example.net",
+  "faker_seed": 516607,
+  "first_name": "Вера",
+  "last_name": "Журавлева",
+  "middle_name": "Ждановна",
+  "password": "3+4&4Ub@R(",
+  "password2": "3+4&4Ub@R(",
+  "phone": "83019373324",
+  "salary": "95516"
+}

@@ -1,0 +1,15 @@
+{
+  "address": "ст. Калач, ш. Чкалова, д. 75, 512270",
+  "age": "19",
+  "city": "с. Апатиты",
+  "company": "АО «Пестова»",
+  "email": "isa1975@example.net",
+  "faker_seed": 472644,
+  "first_name": "Алексей",
+  "last_name": "Полякова",
+  "middle_name": "Тимофеевна",
+  "password": "G@8eZcxDej",
+  "password2": "G@8eZcxDej",
+  "phone": "+7 595 454 2931",
+  "salary": "148579"
+}

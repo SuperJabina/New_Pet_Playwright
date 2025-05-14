@@ -1,0 +1,15 @@
+{
+  "address": "г. Ивдель, пр. Кольцова, д. 4/1 стр. 81, 472733",
+  "age": "34",
+  "city": "к. Заводоуковск",
+  "company": "АО «Лаврентьев Коновалов»",
+  "email": "leonid_57@example.net",
+  "faker_seed": 501610,
+  "first_name": "Степан",
+  "last_name": "Русаков",
+  "middle_name": "Фёдорович",
+  "password": "0W4ZTc(c0$",
+  "password2": "0W4ZTc(c0$",
+  "phone": "8 267 349 05 32",
+  "salary": "81837"
+}

@@ -1,0 +1,15 @@
+{
+  "address": "д. Ханты-Мансийск, наб. Комарова, д. 2, 473464",
+  "age": "59",
+  "city": "клх Тамбов",
+  "company": "НПО «Прохорова Воробьева»",
+  "email": "cmironov@example.com",
+  "faker_seed": 648605,
+  "first_name": "Всемил",
+  "last_name": "Фомин",
+  "middle_name": "Анисимович",
+  "password": "7587bWmb&c",
+  "password2": "7587bWmb&c",
+  "phone": "81540941160",
+  "salary": "140465"
+}

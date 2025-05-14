@@ -1,0 +1,15 @@
+{
+  "address": "клх Пушкино (Моск.), ш. Веселое, д. 5/1, 239353",
+  "age": "53",
+  "city": "клх Ведено",
+  "company": "РАО «Абрамова»",
+  "email": "zfilatov@example.net",
+  "faker_seed": 732225,
+  "first_name": "Моисей",
+  "last_name": "Ермакова",
+  "middle_name": "Олеговна",
+  "password": "^3&V!+4yZA",
+  "password2": "^3&V!+4yZA",
+  "phone": "+73218736869",
+  "salary": "71469"
+}

@@ -1,0 +1,15 @@
+{
+  "address": "ст. Кажим, ш. Камское, д. 5, 286827",
+  "age": "55",
+  "city": "г. Кизилюрт",
+  "company": "ООО «Крюкова»",
+  "email": "lavr_2002@example.net",
+  "faker_seed": 349866,
+  "first_name": "Петр",
+  "last_name": "Самойлова",
+  "middle_name": "Герасимович",
+  "password": "IlJ&9*Kxr^",
+  "password2": "IlJ&9*Kxr^",
+  "phone": "8 943 931 2981",
+  "salary": "172805"
+}

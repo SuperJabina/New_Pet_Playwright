@@ -1,0 +1,15 @@
+{
+  "address": "клх Павловская, наб. Уральская, д. 27 стр. 5/8, 226182",
+  "age": "39",
+  "city": "клх Всеволожск",
+  "company": "Шнейдер Электрик (Schneider Electric)",
+  "email": "valerija2020@example.com",
+  "faker_seed": 745762,
+  "first_name": "Демьян",
+  "last_name": "Потапов",
+  "middle_name": "Анатольевна",
+  "password": "$XF$2WlH!4",
+  "password2": "$XF$2WlH!4",
+  "phone": "8 (226) 330-8723",
+  "salary": "92649"
+}

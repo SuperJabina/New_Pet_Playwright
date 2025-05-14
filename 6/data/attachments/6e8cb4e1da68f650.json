@@ -1,0 +1,15 @@
+{
+  "address": "клх Южноуральск, ш. Республиканское, д. 9 стр. 1/5, 817054",
+  "age": "64",
+  "city": "к. Апрелевка",
+  "company": "РАО «Афанасьева Рыбаков»",
+  "email": "jakushevaevdokija@example.com",
+  "faker_seed": 556232,
+  "first_name": "Митофан",
+  "last_name": "Лобанова",
+  "middle_name": "Эдуардович",
+  "password": "Hl3%_Q!w&f",
+  "password2": "Hl3%_Q!w&f",
+  "phone": "8 828 806 30 72",
+  "salary": "66159"
+}

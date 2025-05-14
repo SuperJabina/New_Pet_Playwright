@@ -1,0 +1,15 @@
+{
+  "address": "с. Агинское (Забайк.), алл. Ветеранов, д. 3/4 стр. 8/5, 348767",
+  "age": "45",
+  "city": "п. Тура",
+  "company": "ЗАО «Данилов Беспалов»",
+  "email": "guriavdeev@example.com",
+  "faker_seed": 661621,
+  "first_name": "Елена",
+  "last_name": "Колесникова",
+  "middle_name": "Тимофеевна",
+  "password": "r+u4NAfSM9",
+  "password2": "r+u4NAfSM9",
+  "phone": "82389207378",
+  "salary": "22101"
+}

@@ -1,0 +1,15 @@
+{
+  "address": "с. Усть-Илимск, ул. Химиков, д. 1/1 к. 273, 788616",
+  "age": "26",
+  "city": "д. Екатеринбург",
+  "company": "Меркушев Групп",
+  "email": "ksenija69@example.org",
+  "faker_seed": 930568,
+  "first_name": "Марина",
+  "last_name": "Ларионов",
+  "middle_name": "Вениаминовна",
+  "password": "#S#(8Nfg5g",
+  "password2": "#S#(8Nfg5g",
+  "phone": "86894297384",
+  "salary": "148250"
+}

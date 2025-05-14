@@ -1,0 +1,15 @@
+{
+  "address": "ст. Ижевск, пр. Красногвардейский, д. 2 к. 1/9, 392494",
+  "age": "69",
+  "city": "к. Красноуральск",
+  "company": "ОАО «Корнилова»",
+  "email": "viktorinkulagin@example.com",
+  "faker_seed": 122581,
+  "first_name": "Федосий",
+  "last_name": "Бобылева",
+  "middle_name": "Борисовна",
+  "password": "51Q4yOEo*l",
+  "password2": "51Q4yOEo*l",
+  "phone": "8 (326) 417-03-01",
+  "salary": "96525"
+}

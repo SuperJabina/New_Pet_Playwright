@@ -1,0 +1,15 @@
+{
+  "address": "с. Апатиты, пер. Фабричный, д. 8, 105766",
+  "age": "80",
+  "city": "д. Балтийск",
+  "company": "РАО «Голубева Хохлов»",
+  "email": "anikepopov@example.net",
+  "faker_seed": 426228,
+  "first_name": "Афанасий",
+  "last_name": "Дементьев",
+  "middle_name": "Олеговна",
+  "password": "r%2DVvdi(%",
+  "password2": "r%2DVvdi(%",
+  "phone": "+7 (893) 931-76-06",
+  "salary": "62194"
+}

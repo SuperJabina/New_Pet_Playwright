@@ -1,0 +1,15 @@
+{
+  "address": "ст. Черемхово, пер. Кирпичный, д. 482 стр. 58, 035407",
+  "age": "19",
+  "city": "г. Петушки",
+  "company": "Госкорпорация по ОрВД",
+  "email": "davidovprokofi@example.com",
+  "faker_seed": 511656,
+  "first_name": "Дмитрий",
+  "last_name": "Горбунов",
+  "middle_name": "Владиславович",
+  "password": "F@4JcFL*_4",
+  "password2": "F@4JcFL*_4",
+  "phone": "+7 001 288 36 43",
+  "salary": "82694"
+}

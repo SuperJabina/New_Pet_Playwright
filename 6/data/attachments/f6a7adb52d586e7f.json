@@ -1,0 +1,15 @@
+{
+  "address": "клх Красногорск (Моск.), алл. Стадионная, д. 550 к. 260, 984276",
+  "age": "39",
+  "city": "д. Гаврилов-Ям",
+  "company": "Титан",
+  "email": "eliseevevdokim@example.net",
+  "faker_seed": 761200,
+  "first_name": "Еремей",
+  "last_name": "Емельянов",
+  "middle_name": "Авдеевич",
+  "password": "$2$UVLAtc!",
+  "password2": "$2$UVLAtc!",
+  "phone": "8 (119) 758-3911",
+  "salary": "56685"
+}

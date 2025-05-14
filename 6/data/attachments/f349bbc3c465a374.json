@@ -1,0 +1,15 @@
+{
+  "address": "к. Старая Русса, алл. Тургенева, д. 825, 743548",
+  "age": "83",
+  "city": "к. Сибай",
+  "company": "Лаборатория Касперского",
+  "email": "alekse_1992@example.com",
+  "faker_seed": 237784,
+  "first_name": "Лукия",
+  "last_name": "Аксенов",
+  "middle_name": "Елизарович",
+  "password": "B+6o9BLC*q",
+  "password2": "B+6o9BLC*q",
+  "phone": "+7 382 421 9619",
+  "salary": "109428"
+}

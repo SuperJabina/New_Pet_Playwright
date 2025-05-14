@@ -1,0 +1,15 @@
+{
+  "address": "ст. Москва, МГУ, ул. Урожайная, д. 77 стр. 253, 744753",
+  "age": "27",
+  "city": "к. Каменск-Уральский",
+  "company": "РАО «Лапина-Васильев»",
+  "email": "vladislav_44@example.net",
+  "faker_seed": 83113,
+  "first_name": "Емельян",
+  "last_name": "Меркушев",
+  "middle_name": "Андреевич",
+  "password": "Jn4)XeVe#5",
+  "password2": "Jn4)XeVe#5",
+  "phone": "8 (774) 701-6598",
+  "salary": "99766"
+}

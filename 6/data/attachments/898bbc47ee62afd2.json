@@ -1,0 +1,15 @@
+{
+  "address": "с. Тотьма, пер. Гастелло, д. 8/8 к. 34, 157215",
+  "age": "46",
+  "city": "с. Карабудахкент",
+  "company": "Старттех",
+  "email": "andreevfeofan@example.com",
+  "faker_seed": 501107,
+  "first_name": "Евгения",
+  "last_name": "Лазарева",
+  "middle_name": "Аркадьевна",
+  "password": "%9AK$)xyQm",
+  "password2": "%9AK$)xyQm",
+  "phone": "+76103934205",
+  "salary": "173567"
+}
