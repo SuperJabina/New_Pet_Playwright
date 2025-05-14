@@ -1,0 +1,15 @@
+{
+  "address": "клх Объячево, бул. Свободный, д. 7/9 к. 8/5, 101276",
+  "age": "73",
+  "city": "ст. Макаров",
+  "company": "АО «Зуев-Морозов»",
+  "email": "nikitagalkin@example.org",
+  "faker_seed": 103701,
+  "first_name": "Борислав",
+  "last_name": "Мишин",
+  "middle_name": "Иларионович",
+  "password": "wkm4qzBpu*",
+  "password2": "wkm4qzBpu*",
+  "phone": "8 563 996 8703",
+  "salary": "96265"
+}

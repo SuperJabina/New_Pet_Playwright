@@ -1,0 +1,15 @@
+{
+  "address": "с. Сухиничи, ш. Заовражное, д. 512 к. 5/4, 317879",
+  "age": "36",
+  "city": "клх Лодейное Поле",
+  "company": "Якобс Дау Эгбертс Рус (Jacobs Douwe Egberts)",
+  "email": "hohlovsvjatopolk@example.org",
+  "faker_seed": 965252,
+  "first_name": "Галактион",
+  "last_name": "Афанасьева",
+  "middle_name": "Игнатович",
+  "password": "WG$4PfQY5H",
+  "password2": "WG$4PfQY5H",
+  "phone": "+74450929788",
+  "salary": "80599"
+}

@@ -1,0 +1,15 @@
+{
+  "address": "с. Бавлы, ш. Коминтерна, д. 5/2 стр. 34, 693171",
+  "age": "40",
+  "city": "г. Серафимович",
+  "company": "Русская медная компания",
+  "email": "ratibor_30@example.net",
+  "faker_seed": 494705,
+  "first_name": "Иван",
+  "last_name": "Лукина",
+  "middle_name": "Елизарович",
+  "password": "QQLma^mh$6",
+  "password2": "QQLma^mh$6",
+  "phone": "8 (625) 231-3494",
+  "salary": "113457"
+}

@@ -1,0 +1,15 @@
+{
+  "address": "к. Кежма, пр. 8-е Марта, д. 54 стр. 21, 995876",
+  "age": "33",
+  "city": "г. Воронеж",
+  "company": "НПО «Быков Петухов»",
+  "email": "nosovkim@example.org",
+  "faker_seed": 478442,
+  "first_name": "Нифонт",
+  "last_name": "Шаров",
+  "middle_name": "Захаровна",
+  "password": "E#7$oTjdSc",
+  "password2": "E#7$oTjdSc",
+  "phone": "8 (010) 849-6115",
+  "salary": "135467"
+}

@@ -1,0 +1,15 @@
+{
+  "address": "г. Магадан, пр. Верхний, д. 2 к. 13, 934295",
+  "age": "58",
+  "city": "п. Набережные Челны",
+  "company": "ОАО «Коновалов, Лебедев и Сорокина»",
+  "email": "gorshkovpankrat@example.net",
+  "faker_seed": 495501,
+  "first_name": "Анжела",
+  "last_name": "Гордеев",
+  "middle_name": "Игнатьевич",
+  "password": "Y#&6aFDyHh",
+  "password2": "Y#&6aFDyHh",
+  "phone": "8 639 694 3372",
+  "salary": "126934"
+}

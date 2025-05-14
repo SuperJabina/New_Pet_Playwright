@@ -1,0 +1,15 @@
+{
+  "address": "п. Рязань, наб. Тупиковая, д. 3/5, 445922",
+  "age": "11",
+  "city": "п. Ульяновск",
+  "company": "НПО «Галкин-Тихонова»",
+  "email": "medvedevaregina@example.com",
+  "faker_seed": 715495,
+  "first_name": "Арефий",
+  "last_name": "Колесников",
+  "middle_name": "Захарьевич",
+  "password": "!G8Dl0%sY2",
+  "password2": "!G8Dl0%sY2",
+  "phone": "8 (945) 384-32-40",
+  "salary": "151661"
+}

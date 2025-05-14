@@ -1,0 +1,15 @@
+{
+  "address": "г. Арсеньев, ул. Железнодорожная, д. 7, 266565",
+  "age": "23",
+  "city": "д. Клин",
+  "company": "ЗАО «Пономарев, Большакова и Галкина»",
+  "email": "kolesnikovgerman@example.org",
+  "faker_seed": 538093,
+  "first_name": "Маргарита",
+  "last_name": "Алексеева",
+  "middle_name": "Глебович",
+  "password": "!6KtZWr7@K",
+  "password2": "!6KtZWr7@K",
+  "phone": "+7 325 005 69 49",
+  "salary": "118497"
+}

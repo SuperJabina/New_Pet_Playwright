@@ -1,0 +1,15 @@
+{
+  "address": "ст. Красновишерск, пер. Семашко, д. 6 стр. 8, 890867",
+  "age": "94",
+  "city": "г. Новороссийск",
+  "company": "ОАО «Бурова»",
+  "email": "jblinova@example.net",
+  "faker_seed": 29579,
+  "first_name": "Мстислав",
+  "last_name": "Киселева",
+  "middle_name": "Борисовна",
+  "password": "SSATQiI0_6",
+  "password2": "SSATQiI0_6",
+  "phone": "+7 (037) 065-9573",
+  "salary": "124860"
+}

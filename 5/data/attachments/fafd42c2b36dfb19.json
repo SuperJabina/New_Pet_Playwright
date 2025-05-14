@@ -1,0 +1,15 @@
+{
+  "address": "к. Москва, МГУ, бул. Абрикосовый, д. 8, 386816",
+  "age": "26",
+  "city": "клх Ревда (Сверд.)",
+  "company": "РАО «Семенов-Селезнев»",
+  "email": "nazar1994@example.org",
+  "faker_seed": 207971,
+  "first_name": "Зиновий",
+  "last_name": "Наумова",
+  "middle_name": "Леоновна",
+  "password": "h+In+2HaIl",
+  "password2": "h+In+2HaIl",
+  "phone": "+7 656 732 6866",
+  "salary": "73049"
+}

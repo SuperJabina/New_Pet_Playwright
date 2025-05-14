@@ -1,0 +1,15 @@
+{
+  "address": "п. Нижнеудинск, бул. Пролетарский, д. 66 к. 5, 738633",
+  "age": "28",
+  "city": "п. Морозовск",
+  "company": "РАО «Крылов»",
+  "email": "borisovaraisa@example.com",
+  "faker_seed": 895605,
+  "first_name": "Алина",
+  "last_name": "Селиверстова",
+  "middle_name": "Жоресович",
+  "password": "2R+Q2rUfx4",
+  "password2": "2R+Q2rUfx4",
+  "phone": "+7 437 731 0170",
+  "salary": "62267"
+}

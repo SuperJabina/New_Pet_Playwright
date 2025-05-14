@@ -1,0 +1,15 @@
+{
+  "address": "п. Мончегорск, пр. Мельничный, д. 33 стр. 78, 447468",
+  "age": "12",
+  "city": "п. Набережные Челны",
+  "company": "АО «Молчанова»",
+  "email": "mokearhipov@example.com",
+  "faker_seed": 334950,
+  "first_name": "Дорофей",
+  "last_name": "Белоусов",
+  "middle_name": "Гертрудович",
+  "password": "ExxPDxRd!7",
+  "password2": "ExxPDxRd!7",
+  "phone": "+7 (791) 339-84-07",
+  "salary": "138244"
+}

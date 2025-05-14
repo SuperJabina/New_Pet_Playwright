@@ -1,0 +1,15 @@
+{
+  "address": "ст. Славгород, пр. Пригородный, д. 4, 742166",
+  "age": "50",
+  "city": "п. Сузун",
+  "company": "ООО «Якушев Иванова»",
+  "email": "kolesnikovaviktorija@example.com",
+  "faker_seed": 163745,
+  "first_name": "Эмилия",
+  "last_name": "Туров",
+  "middle_name": "Артурович",
+  "password": "K+5OPCno$%",
+  "password2": "K+5OPCno$%",
+  "phone": "86939380524",
+  "salary": "34660"
+}

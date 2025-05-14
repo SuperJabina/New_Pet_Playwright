@@ -1,0 +1,15 @@
+{
+  "address": "д. Кирово-Чепецк, алл. Центральная, д. 497 к. 4, 068707",
+  "age": "61",
+  "city": "с. Камышин",
+  "company": "Рожкова Лимитед",
+  "email": "jakovkuzmin@example.com",
+  "faker_seed": 803446,
+  "first_name": "Эмилия",
+  "last_name": "Панова",
+  "middle_name": "Петровна",
+  "password": "6&0cEm5gIJ",
+  "password2": "6&0cEm5gIJ",
+  "phone": "8 (421) 975-2099",
+  "salary": "27477"
+}

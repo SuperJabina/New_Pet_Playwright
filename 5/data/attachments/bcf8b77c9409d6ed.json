@@ -1,0 +1,15 @@
+{
+  "address": "ст. Камень-на-Оби, ш. Целинное, д. 70 стр. 1/2, 557269",
+  "age": "58",
+  "city": "п. Ахтубинск",
+  "company": "Монди СЛПК (Mondi)",
+  "email": "mpestova@example.com",
+  "faker_seed": 390446,
+  "first_name": "Климент",
+  "last_name": "Гришина",
+  "middle_name": "Гаврилович",
+  "password": "D7szC7@h&h",
+  "password2": "D7szC7@h&h",
+  "phone": "+7 (827) 944-4277",
+  "salary": "133944"
+}

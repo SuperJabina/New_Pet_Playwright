@@ -1,0 +1,15 @@
+{
+  "address": "д. Троицк (Моск.), ш. Шолохова, д. 9/6 к. 119, 606984",
+  "age": "60",
+  "city": "клх Уссурийск",
+  "company": "ООО «Цветков, Гущина и Якушев»",
+  "email": "harlampiloginov@example.org",
+  "faker_seed": 149692,
+  "first_name": "Гедеон",
+  "last_name": "Шарапов",
+  "middle_name": "Филипповна",
+  "password": "&9W@ALOcJe",
+  "password2": "&9W@ALOcJe",
+  "phone": "+70990932285",
+  "salary": "176900"
+}

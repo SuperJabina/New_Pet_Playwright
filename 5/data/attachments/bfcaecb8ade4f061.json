@@ -1,0 +1,15 @@
+{
+  "address": "д. Рыбинск, ш. 50 лет Октября, д. 1, 363035",
+  "age": "38",
+  "city": "с. Томпа",
+  "company": "РАО «Гущина Кузнецова»",
+  "email": "isidor_1989@example.net",
+  "faker_seed": 709961,
+  "first_name": "Наркис",
+  "last_name": "Блохин",
+  "middle_name": "Изотович",
+  "password": "h3KjvSLF$X",
+  "password2": "h3KjvSLF$X",
+  "phone": "8 (817) 479-8036",
+  "salary": "68987"
+}

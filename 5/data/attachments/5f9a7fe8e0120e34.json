@@ -1,0 +1,15 @@
+{
+  "address": "п. Ступино, бул. Радищева, д. 64, 694209",
+  "age": "70",
+  "city": "ст. Шаховская",
+  "company": "Никифорова и партнеры",
+  "email": "valeri32@example.org",
+  "faker_seed": 51734,
+  "first_name": "Вероника",
+  "last_name": "Воронова",
+  "middle_name": "Матвеевич",
+  "password": "*33rMg$gl4",
+  "password2": "*33rMg$gl4",
+  "phone": "+7 141 282 48 18",
+  "salary": "65424"
+}

@@ -1,0 +1,15 @@
+{
+  "address": "ст. Апрелевка, наб. Бажова, д. 49, 532961",
+  "age": "35",
+  "city": "п. Валаам",
+  "company": "РАО «Полякова-Богданов»",
+  "email": "martjanlebedev@example.com",
+  "faker_seed": 407681,
+  "first_name": "Кира",
+  "last_name": "Кулакова",
+  "middle_name": "Гордеевич",
+  "password": "$1u_mKS(Fz",
+  "password2": "$1u_mKS(Fz",
+  "phone": "+7 (550) 063-80-21",
+  "salary": "46515"
+}

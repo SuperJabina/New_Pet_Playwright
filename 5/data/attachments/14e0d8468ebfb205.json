@@ -1,0 +1,15 @@
+{
+  "address": "п. Астрахань, ул. Рылеева, д. 732, 941101",
+  "age": "29",
+  "city": "с. Гремячинск (Бурят.)",
+  "company": "ООО «Давыдов, Молчанов и Ильина»",
+  "email": "silanti2011@example.com",
+  "faker_seed": 628440,
+  "first_name": "Галактион",
+  "last_name": "Шарапова",
+  "middle_name": "Валерьянович",
+  "password": "z^4nIO_np#",
+  "password2": "z^4nIO_np#",
+  "phone": "8 (550) 255-31-54",
+  "salary": "83149"
+}

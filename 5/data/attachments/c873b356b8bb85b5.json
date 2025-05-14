@@ -1,0 +1,15 @@
+{
+  "address": "к. Челюскин, ул. Томская, д. 2 стр. 637, 471844",
+  "age": "89",
+  "city": "к. Новая Игирма",
+  "company": "ИП «Бобылева-Марков»",
+  "email": "kolobovaalina@example.org",
+  "faker_seed": 813013,
+  "first_name": "Данила",
+  "last_name": "Мамонтова",
+  "middle_name": "Евсеевич",
+  "password": "5ktSfBa_)1",
+  "password2": "5ktSfBa_)1",
+  "phone": "+7 (184) 622-57-60",
+  "salary": "44973"
+}
