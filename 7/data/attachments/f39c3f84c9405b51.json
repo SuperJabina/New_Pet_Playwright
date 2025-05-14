@@ -1,0 +1,15 @@
+{
+  "address": "п. Тулпан, пр. Приозерный, д. 7 к. 10, 302033",
+  "age": "11",
+  "city": "ст. Новосибирск",
+  "company": "ОАО «Молчанов, Дмитриев и Большаков»",
+  "email": "mefodi67@example.com",
+  "faker_seed": 703896,
+  "first_name": "Фортунат",
+  "last_name": "Белякова",
+  "middle_name": "Валерьевич",
+  "password": "_r30dXKC*!",
+  "password2": "_r30dXKC*!",
+  "phone": "+70871815408",
+  "salary": "24635"
+}

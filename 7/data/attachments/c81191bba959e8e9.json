@@ -1,0 +1,15 @@
+{
+  "address": "к. Партизанск, бул. Братский, д. 7 стр. 26, 452484",
+  "age": "31",
+  "city": "д. Златоуст",
+  "company": "НПО «Дроздова»",
+  "email": "wodintsov@example.net",
+  "faker_seed": 77690,
+  "first_name": "Ксения",
+  "last_name": "Носков",
+  "middle_name": "Теймуразович",
+  "password": "$#N82KLzGK",
+  "password2": "$#N82KLzGK",
+  "phone": "8 (433) 099-63-29",
+  "salary": "53045"
+}

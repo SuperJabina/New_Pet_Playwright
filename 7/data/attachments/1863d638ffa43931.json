@@ -1,0 +1,15 @@
+{
+  "address": "к. Гаврилов-Ям, пр. Тополиный, д. 9/5, 651353",
+  "age": "35",
+  "city": "к. Палана",
+  "company": "Снежная Королева",
+  "email": "aleksandrovvladilen@example.net",
+  "faker_seed": 996420,
+  "first_name": "Василий",
+  "last_name": "Борисова",
+  "middle_name": "Ниловна",
+  "password": "bj7ravEr$7",
+  "password2": "bj7ravEr$7",
+  "phone": "+7 (832) 338-41-80",
+  "salary": "145384"
+}

@@ -1,0 +1,15 @@
+{
+  "address": "к. Сузун, бул. Металлургов, д. 94 стр. 2, 174816",
+  "age": "13",
+  "city": "к. Кежма",
+  "company": "НПО «Фокин-Абрамова»",
+  "email": "paramonilin@example.net",
+  "faker_seed": 681502,
+  "first_name": "Феоктист",
+  "last_name": "Марков",
+  "middle_name": "Ярославович",
+  "password": "j6sGjhVQ!j",
+  "password2": "j6sGjhVQ!j",
+  "phone": "+74161145018",
+  "salary": "123722"
+}

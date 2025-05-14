@@ -1,0 +1,15 @@
+{
+  "address": "к. Звенигород, пер. Новый, д. 2 к. 7, 784519",
+  "age": "89",
+  "city": "ст. Ачинск",
+  "company": "Шилов Лимитед",
+  "email": "leonid_1992@example.net",
+  "faker_seed": 955387,
+  "first_name": "Григорий",
+  "last_name": "Константинов",
+  "middle_name": "Даниилович",
+  "password": "I)KkB1$pQQ",
+  "password2": "I)KkB1$pQQ",
+  "phone": "8 378 891 86 69",
+  "salary": "41242"
+}

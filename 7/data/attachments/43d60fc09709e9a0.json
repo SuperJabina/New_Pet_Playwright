@@ -1,0 +1,15 @@
+{
+  "address": "с. Ельня, наб. Монтажников, д. 1/1 к. 784, 073152",
+  "age": "37",
+  "city": "г. Кош-Агач",
+  "company": "ИП «Белоусова, Самсонов и Сысоев»",
+  "email": "radim_2005@example.com",
+  "faker_seed": 661465,
+  "first_name": "Арефий",
+  "last_name": "Носов",
+  "middle_name": "Ааронович",
+  "password": "SRr8qNu5$K",
+  "password2": "SRr8qNu5$K",
+  "phone": "8 (786) 849-3788",
+  "salary": "146889"
+}

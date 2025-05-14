@@ -1,0 +1,15 @@
+{
+  "address": "ст. Кырен, пр. Победы, д. 262 стр. 79, 570245",
+  "age": "53",
+  "city": "с. Выборг",
+  "company": "ООО «Матвеев Стрелкова»",
+  "email": "sharovgavrila@example.net",
+  "faker_seed": 256834,
+  "first_name": "Милица",
+  "last_name": "Сидорова",
+  "middle_name": "Вячеславович",
+  "password": "z8*1f(He^s",
+  "password2": "z8*1f(He^s",
+  "phone": "8 413 691 69 02",
+  "salary": "36556"
+}

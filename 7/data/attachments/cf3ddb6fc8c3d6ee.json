@@ -1,0 +1,15 @@
+{
+  "address": "клх Рославль, пер. Краснознаменный, д. 4/6 к. 64, 814636",
+  "age": "44",
+  "city": "с. Лагань",
+  "company": "ООО «Ершов, Антонов и Павлов»",
+  "email": "feliks1999@example.net",
+  "faker_seed": 419927,
+  "first_name": "Вячеслав",
+  "last_name": "Буров",
+  "middle_name": "Федосеевич",
+  "password": "%nUc14#9Y3",
+  "password2": "%nUc14#9Y3",
+  "phone": "+77882416583",
+  "salary": "66648"
+}

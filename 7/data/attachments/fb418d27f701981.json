@@ -1,0 +1,15 @@
+{
+  "address": "г. Тутаев, пр. Монтажников, д. 9/2 к. 99, 600775",
+  "age": "41",
+  "city": "д. Белоярский",
+  "company": "ОАО «Николаев Иванов»",
+  "email": "gedeonbogdanov@example.org",
+  "faker_seed": 996763,
+  "first_name": "Любовь",
+  "last_name": "Гурьев",
+  "middle_name": "Харитоновна",
+  "password": "$lU8CjGvWk",
+  "password2": "$lU8CjGvWk",
+  "phone": "8 766 595 88 15",
+  "salary": "161511"
+}

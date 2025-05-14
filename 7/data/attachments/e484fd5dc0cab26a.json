@@ -1,0 +1,15 @@
+{
+  "address": "д. Белогорск (Амур.), ул. Транспортная, д. 64, 199579",
+  "age": "97",
+  "city": "к. Саратов",
+  "company": "ОАО «Осипов»",
+  "email": "evse_1996@example.org",
+  "faker_seed": 550615,
+  "first_name": "Дементий",
+  "last_name": "Якушев",
+  "middle_name": "Феодосьевич",
+  "password": "l*f%eSnb_8",
+  "password2": "l*f%eSnb_8",
+  "phone": "8 335 604 96 32",
+  "salary": "155516"
+}

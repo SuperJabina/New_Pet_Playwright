@@ -1,0 +1,15 @@
+{
+  "address": "к. Сергиев Посад, пр. Орджоникидзе, д. 62 к. 541, 399020",
+  "age": "58",
+  "city": "к. Ухта",
+  "company": "ЗАО «Васильева-Кононова»",
+  "email": "shashkovjuli@example.com",
+  "faker_seed": 698503,
+  "first_name": "Екатерина",
+  "last_name": "Блинов",
+  "middle_name": "Федосеевич",
+  "password": "D&$t7FnnUP",
+  "password2": "D&$t7FnnUP",
+  "phone": "+73175080745",
+  "salary": "138148"
+}

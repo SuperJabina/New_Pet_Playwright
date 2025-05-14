@@ -1,0 +1,15 @@
+{
+  "address": "г. Якутск, ш. Высотное, д. 7/8 к. 570, 940893",
+  "age": "16",
+  "city": "ст. Лабытнанги",
+  "company": "Группа Рольф",
+  "email": "kazimir_37@example.org",
+  "faker_seed": 416941,
+  "first_name": "Юлий",
+  "last_name": "Маслова",
+  "middle_name": "Игоревна",
+  "password": "$2rdIUBzV!",
+  "password2": "$2rdIUBzV!",
+  "phone": "+7 380 701 6457",
+  "salary": "56533"
+}

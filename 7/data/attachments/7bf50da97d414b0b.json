@@ -1,0 +1,15 @@
+{
+  "address": "с. Невинномысск, алл. Хуторская, д. 839 к. 2, 316470",
+  "age": "48",
+  "city": "п. Беслан",
+  "company": "Сименс (Siemens)",
+  "email": "ivanna_63@example.org",
+  "faker_seed": 636403,
+  "first_name": "Ермил",
+  "last_name": "Елисеева",
+  "middle_name": "Венедиктович",
+  "password": "5lC5F81$%j",
+  "password2": "5lC5F81$%j",
+  "phone": "+7 (323) 461-2031",
+  "salary": "109171"
+}

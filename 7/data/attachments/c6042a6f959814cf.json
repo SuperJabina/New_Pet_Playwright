@@ -1,0 +1,15 @@
+{
+  "address": "к. Котельнич, бул. Блюхера, д. 73, 829519",
+  "age": "32",
+  "city": "ст. Печора",
+  "company": "Цветков Инкорпорэйтед",
+  "email": "krjukovefim@example.com",
+  "faker_seed": 909058,
+  "first_name": "Евгения",
+  "last_name": "Ширяев",
+  "middle_name": "Игнатович",
+  "password": "j1Hhzs(M#3",
+  "password2": "j1Hhzs(M#3",
+  "phone": "+7 (061) 545-85-38",
+  "salary": "31670"
+}

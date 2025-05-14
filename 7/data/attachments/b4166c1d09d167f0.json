@@ -1,0 +1,15 @@
+{
+  "address": "п. Кандалакша, пр. Ореховый, д. 5, 446959",
+  "age": "58",
+  "city": "к. Шерегеш",
+  "company": "ООО «Гущина-Александрова»",
+  "email": "egorovvarlaam@example.org",
+  "faker_seed": 83945,
+  "first_name": "Радислав",
+  "last_name": "Михайлова",
+  "middle_name": "Елизарович",
+  "password": "7&3XnNZeq#",
+  "password2": "7&3XnNZeq#",
+  "phone": "8 (469) 228-0115",
+  "salary": "72167"
+}

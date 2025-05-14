@@ -1,0 +1,15 @@
+{
+  "address": "д. Новороссийск, пр. Разина, д. 3, 123704",
+  "age": "48",
+  "city": "к. Троицко-Печорск",
+  "company": "ЗАО «Агафонова, Кириллов и Галкин»",
+  "email": "valentin1996@example.com",
+  "faker_seed": 148950,
+  "first_name": "Василий",
+  "last_name": "Якушева",
+  "middle_name": "Викентьевич",
+  "password": "0p497pFs%@",
+  "password2": "0p497pFs%@",
+  "phone": "8 150 548 6371",
+  "salary": "167703"
+}

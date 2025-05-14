@@ -1,0 +1,15 @@
+{
+  "address": "д. Краснотурьинск, алл. Свободы, д. 52 к. 454, 249187",
+  "age": "13",
+  "city": "д. Саров (Морд.)",
+  "company": "ВЭБ.РФ",
+  "email": "mechislavabramov@example.org",
+  "faker_seed": 67439,
+  "first_name": "Савватий",
+  "last_name": "Горбунова",
+  "middle_name": "Ефимович",
+  "password": "TW3%cS_l!6",
+  "password2": "TW3%cS_l!6",
+  "phone": "8 (469) 011-6280",
+  "salary": "126865"
+}

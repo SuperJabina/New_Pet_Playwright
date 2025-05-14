@@ -1,0 +1,15 @@
+{
+  "address": "с. Горячинск, ш. Безымянное, д. 9/2 к. 850, 763458",
+  "age": "10",
+  "city": "г. Сургут (Хант.)",
+  "company": "ЗАО «Дорофеева-Тетерин»",
+  "email": "sergeevaakulina@example.net",
+  "faker_seed": 363368,
+  "first_name": "Александра",
+  "last_name": "Рожков",
+  "middle_name": "Адамович",
+  "password": "!)5_mXYxJI",
+  "password2": "!)5_mXYxJI",
+  "phone": "8 (343) 809-3748",
+  "salary": "112683"
+}

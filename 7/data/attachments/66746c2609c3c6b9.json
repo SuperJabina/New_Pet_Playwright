@@ -1,0 +1,15 @@
+{
+  "address": "ст. Видное, бул. Олега Кошевого, д. 6/5 стр. 43, 326717",
+  "age": "91",
+  "city": "с. Чебоксары",
+  "company": "ОАО «Гущин-Григорьев»",
+  "email": "feofan1996@example.org",
+  "faker_seed": 19467,
+  "first_name": "Сергей",
+  "last_name": "Богданов",
+  "middle_name": "Филатович",
+  "password": "f_r8kPhXNl",
+  "password2": "f_r8kPhXNl",
+  "phone": "8 (944) 922-3936",
+  "salary": "160615"
+}

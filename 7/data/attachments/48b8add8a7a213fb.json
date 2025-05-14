@@ -1,0 +1,15 @@
+{
+  "address": "с. Морозовск, бул. Высотный, д. 403, 503718",
+  "age": "67",
+  "city": "п. Кириши",
+  "company": "Брок-Инвест-Сервис и К",
+  "email": "boris85@example.org",
+  "faker_seed": 818085,
+  "first_name": "Евсей",
+  "last_name": "Алексеева",
+  "middle_name": "Натановна",
+  "password": "AX*g3ULx&U",
+  "password2": "AX*g3ULx&U",
+  "phone": "+7 (099) 122-3071",
+  "salary": "65809"
+}

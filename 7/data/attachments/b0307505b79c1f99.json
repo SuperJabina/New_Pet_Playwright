@@ -1,0 +1,15 @@
+{
+  "address": "клх Чебаркуль, алл. Щетинкина, д. 9, 704986",
+  "age": "17",
+  "city": "к. Красноселькуп",
+  "company": "НПО «Лапин»",
+  "email": "tihonovkallistrat@example.net",
+  "faker_seed": 260693,
+  "first_name": "Автоном",
+  "last_name": "Бобылев",
+  "middle_name": "Устинович",
+  "password": "30$KmDxF!2",
+  "password2": "30$KmDxF!2",
+  "phone": "+78846092320",
+  "salary": "50649"
+}

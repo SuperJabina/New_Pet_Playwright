@@ -1,0 +1,15 @@
+{
+  "address": "д. Троицк (Челяб.), ш. Песчаное, д. 3, 357702",
+  "age": "20",
+  "city": "г. Усть-Кулом",
+  "company": "РАО «Дмитриев, Кулагина и Горбачев»",
+  "email": "rozhkovjulian@example.com",
+  "faker_seed": 246846,
+  "first_name": "Панкрат",
+  "last_name": "Козлов",
+  "middle_name": "Николаевна",
+  "password": "@TUOvisJ2w",
+  "password2": "@TUOvisJ2w",
+  "phone": "8 (922) 377-4712",
+  "salary": "53565"
+}

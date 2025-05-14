@@ -1,0 +1,15 @@
+{
+  "address": "с. Учалы, пер. 60 лет Октября, д. 4 к. 14, 949647",
+  "age": "73",
+  "city": "ст. Калачинск",
+  "company": "НПО «Блохина, Носова и Орехов»",
+  "email": "ldanilova@example.net",
+  "faker_seed": 85722,
+  "first_name": "Капитон",
+  "last_name": "Виноградов",
+  "middle_name": "Фролович",
+  "password": "*7pxCvS_np",
+  "password2": "*7pxCvS_np",
+  "phone": "+7 (241) 335-5871",
+  "salary": "131434"
+}

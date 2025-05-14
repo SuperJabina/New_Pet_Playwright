@@ -1,0 +1,15 @@
+{
+  "address": "ст. Тамбов, алл. Баумана, д. 32 к. 9/7, 901928",
+  "age": "90",
+  "city": "д. Чегем",
+  "company": "РАО «Исаева, Костин и Кошелева»",
+  "email": "ponomarevmilovan@example.com",
+  "faker_seed": 679014,
+  "first_name": "Филарет",
+  "last_name": "Фомичева",
+  "middle_name": "Жоресович",
+  "password": "uY_0hYQqKz",
+  "password2": "uY_0hYQqKz",
+  "phone": "+7 (081) 833-3305",
+  "salary": "21767"
+}

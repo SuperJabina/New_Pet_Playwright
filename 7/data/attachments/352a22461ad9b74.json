@@ -1,0 +1,15 @@
+{
+  "address": "ст. Прохладный, пр. Пожарского, д. 408 стр. 69, 171737",
+  "age": "98",
+  "city": "с. Тулпан",
+  "company": "ООО «Комаров, Филиппов и Турова»",
+  "email": "svetlana_05@example.net",
+  "faker_seed": 624062,
+  "first_name": "Андрей",
+  "last_name": "Рогов",
+  "middle_name": "Олеговна",
+  "password": "+5k1Nc^aqW",
+  "password2": "+5k1Nc^aqW",
+  "phone": "82782338089",
+  "salary": "100585"
+}

@@ -1,0 +1,15 @@
+{
+  "address": "ст. Далматово, пр. Мелиоративный, д. 10, 365110",
+  "age": "18",
+  "city": "клх Верхний Баскунчак",
+  "company": "НПО «Ефремова, Жукова и Власова»",
+  "email": "jfilatova@example.net",
+  "faker_seed": 480104,
+  "first_name": "Лидия",
+  "last_name": "Савельева",
+  "middle_name": "Евгеньевна",
+  "password": "im3!qFnLK@",
+  "password2": "im3!qFnLK@",
+  "phone": "8 (688) 977-1190",
+  "salary": "72383"
+}

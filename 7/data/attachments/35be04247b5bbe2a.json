@@ -1,0 +1,15 @@
+{
+  "address": "клх Гатчина, ш. Ростовское, д. 2/3 к. 7/1, 276190",
+  "age": "77",
+  "city": "к. Сосновый Бор",
+  "company": "Фирма Агрокомплекс им. Ткачева",
+  "email": "ziminbogdan@example.com",
+  "faker_seed": 605079,
+  "first_name": "Аникей",
+  "last_name": "Сидоров",
+  "middle_name": "Харитоновна",
+  "password": "C0Yj&GUq(e",
+  "password2": "C0Yj&GUq(e",
+  "phone": "+7 123 788 59 91",
+  "salary": "17233"
+}

@@ -1,0 +1,15 @@
+{
+  "address": "с. Терскол, алл. Енисейская, д. 38 к. 90, 475594",
+  "age": "53",
+  "city": "г. Боровск",
+  "company": "Крюков Групп",
+  "email": "odintsovpotap@example.net",
+  "faker_seed": 333604,
+  "first_name": "Гостомысл",
+  "last_name": "Агафонова",
+  "middle_name": "Игоревич",
+  "password": "^5UADBWQ@b",
+  "password2": "^5UADBWQ@b",
+  "phone": "+7 (924) 717-26-61",
+  "salary": "101076"
+}

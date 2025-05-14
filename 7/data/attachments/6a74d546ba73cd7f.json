@@ -1,0 +1,15 @@
+{
+  "address": "п. Белокуриха, пер. Большой, д. 2 стр. 62, 951401",
+  "age": "57",
+  "city": "ст. Курган",
+  "company": "ЗАО «Зайцева Журавлева»",
+  "email": "dgalkin@example.org",
+  "faker_seed": 510794,
+  "first_name": "Демьян",
+  "last_name": "Емельянова",
+  "middle_name": "Даниловна",
+  "password": "1uzx^1AkaB",
+  "password2": "1uzx^1AkaB",
+  "phone": "+7 086 884 15 03",
+  "salary": "43765"
+}

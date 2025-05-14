@@ -1,0 +1,58 @@
+INFO     fixtures.page_fixtures:page_fixtures.py:107 Starting page fixture setup
+DEBUG    fixtures.page_fixtures:page_fixtures.py:115 Directory ensured: videos
+DEBUG    fixtures.page_fixtures:page_fixtures.py:115 Directory ensured: tracing
+DEBUG    fixtures.page_fixtures:page_fixtures.py:115 Directory ensured: screenshots
+INFO     fixtures.page_fixtures:page_fixtures.py:129 Launching Firefox browser (headless=True)
+DEBUG    fixtures.page_fixtures:page_fixtures.py:166 Video directory ensured for worker gw1: videos/gw1
+INFO     fixtures.page_fixtures:page_fixtures.py:180 Browser context created with tracing and video recording
+INFO     fixtures.page_fixtures:page_fixtures.py:183 Creating new page
+INFO     fixtures.page_fixtures:page_fixtures.py:185 New page created
+INFO     data.person_info:person_info.py:40 Generated seed: 154445
+INFO     pages.base_page:base_page.py:39 Opening the URN "./webtables"
+INFO     pages.base_page:base_page.py:42 Opened URL: https://demoqa.com/webtables
+INFO     elements.base_element:base_element.py:80 Clicking button "Button [Add]" (индекс: 0)
+INFO     elements.base_element:base_element.py:62 Получение локатора для "Button [Add]" (индекс: 0), найдено 1 элементов
+INFO     elements.base_element:base_element.py:62 Получение локатора для "Title of Registration Form" (индекс: 0), найдено 1 элементов
+INFO     elements.base_element:base_element.py:101 Element text 'Title of Registration Form' is visible
+INFO     components.registration_form_component:registration_form_component.py:87 Filling form, validating email with value: дом@дом.рф
+INFO     elements.base_element:base_element.py:62 Получение локатора для "First Name field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:37 Filling input "First Name field" to value "Ипат"
+INFO     elements.base_element:base_element.py:62 Получение локатора для "Last Name field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:37 Filling input "Last Name field" to value "Абрамова"
+INFO     elements.base_element:base_element.py:62 Получение локатора для "email field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:37 Filling input "email field" to value "дом@дом.рф"
+INFO     elements.base_element:base_element.py:62 Получение локатора для "age field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:37 Filling input "age field" to value "34"
+INFO     elements.base_element:base_element.py:62 Получение локатора для "salary field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:37 Filling input "salary field" to value "82069"
+INFO     elements.base_element:base_element.py:62 Получение локатора для "department field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:37 Filling input "department field" to value "Емельянов и партнеры"
+DEBUG    components.registration_form_component:registration_form_component.py:106 Filled text: {'first_name': 'Ипат', 'last_name': 'Абрамова', 'email': 'дом@дом.рф', 'age': '34', 'salary': '82069', 'department': 'Емельянов и партнеры'}
+INFO     components.registration_form_component:registration_form_component.py:198 Checking first_name has Ипат
+INFO     elements.base_element:base_element.py:62 Получение локатора для "First Name field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:59 Checking that input "First Name field" has a value "Ипат"
+INFO     components.registration_form_component:registration_form_component.py:198 Checking last_name has Абрамова
+INFO     elements.base_element:base_element.py:62 Получение локатора для "Last Name field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:59 Checking that input "Last Name field" has a value "Абрамова"
+INFO     components.registration_form_component:registration_form_component.py:198 Checking email has дом@дом.рф
+INFO     elements.base_element:base_element.py:62 Получение локатора для "email field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:59 Checking that input "email field" has a value "дом@дом.рф"
+INFO     components.registration_form_component:registration_form_component.py:198 Checking age has 34
+INFO     elements.base_element:base_element.py:62 Получение локатора для "age field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:59 Checking that input "age field" has a value "34"
+INFO     components.registration_form_component:registration_form_component.py:198 Checking salary has 82069
+INFO     elements.base_element:base_element.py:62 Получение локатора для "salary field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:59 Checking that input "salary field" has a value "82069"
+INFO     components.registration_form_component:registration_form_component.py:198 Checking department has Емельянов и партнеры
+INFO     elements.base_element:base_element.py:62 Получение локатора для "department field" (индекс: 0), найдено 1 элементов
+INFO     elements.input:input.py:59 Checking that input "department field" has a value "Емельянов и партнеры"
+INFO     elements.base_element:base_element.py:80 Clicking button "submit button" (индекс: 0)
+INFO     elements.base_element:base_element.py:62 Получение локатора для "submit button" (индекс: 0), найдено 1 элементов
+INFO     elements.base_element:base_element.py:62 Получение локатора для "Title of Registration Form" (индекс: 0), найдено 1 элементов
+INFO     elements.base_element:base_element.py:101 Element text 'Title of Registration Form' is visible
+INFO     fixtures.page_fixtures:page_fixtures.py:194 Cleaning up page fixture
+INFO     fixtures.page_fixtures:page_fixtures.py:215 Trace saved and attached for failed test: tracing/49f8a53c-32d2-4897-a0b0-c7606e7825c5.zip
+INFO     fixtures.page_fixtures:page_fixtures.py:233 Screenshot saved and attached for failed test: screenshots/d391fa0c-3558-4883-9dd0-3d5ae34f0d0b.jpeg
+INFO     fixtures.page_fixtures:page_fixtures.py:75 No video to attach or video file not found: None
+INFO     fixtures.page_fixtures:page_fixtures.py:269 Browser context closed
+INFO     fixtures.page_fixtures:page_fixtures.py:276 Browser closed

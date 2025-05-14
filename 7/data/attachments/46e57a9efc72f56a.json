@@ -1,0 +1,15 @@
+{
+  "address": "клх Александров Гай, ш. Рябиновое, д. 4 стр. 2, 617063",
+  "age": "90",
+  "city": "п. Нарьян-Мар",
+  "company": "ЗАО «Игнатова-Сысоев»",
+  "email": "gerasimovavasilisa@example.com",
+  "faker_seed": 708979,
+  "first_name": "Милан",
+  "last_name": "Дмитриев",
+  "middle_name": "Яковлевна",
+  "password": "_sMMx5Te53",
+  "password2": "_sMMx5Te53",
+  "phone": "+78854328899",
+  "salary": "73709"
+}

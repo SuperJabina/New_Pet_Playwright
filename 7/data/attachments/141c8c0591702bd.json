@@ -1,0 +1,15 @@
+{
+  "address": "с. Андреаполь, наб. Урожайная, д. 3, 310193",
+  "age": "54",
+  "city": "п. Таганрог",
+  "company": "ОАО «Орехова, Крылов и Белова»",
+  "email": "emmanuilzhuravlev@example.net",
+  "faker_seed": 131183,
+  "first_name": "Гурий",
+  "last_name": "Соколов",
+  "middle_name": "Константиновна",
+  "password": "^)3g+Vwo4V",
+  "password2": "^)3g+Vwo4V",
+  "phone": "+7 (684) 413-70-59",
+  "salary": "72693"
+}

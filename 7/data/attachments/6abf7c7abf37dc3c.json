@@ -1,0 +1,15 @@
+{
+  "address": "ст. Тамбей, алл. Трудовая, д. 13 к. 50, 950972",
+  "age": "54",
+  "city": "к. Нижневартовск",
+  "company": "ЗАО «Ершова, Сысоева и Зимин»",
+  "email": "amoskulakov@example.com",
+  "faker_seed": 33863,
+  "first_name": "Дементий",
+  "last_name": "Рябова",
+  "middle_name": "Евстигнеевич",
+  "password": "S^^ZU4xN3N",
+  "password2": "S^^ZU4xN3N",
+  "phone": "8 (133) 112-28-93",
+  "salary": "91562"
+}

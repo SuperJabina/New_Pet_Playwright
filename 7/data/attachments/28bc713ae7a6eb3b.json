@@ -1,0 +1,15 @@
+{
+  "address": "к. Эльтон, пр. Авиационный, д. 6, 941305",
+  "age": "93",
+  "city": "с. Жиганск",
+  "company": "АО «Костин, Маслов и Овчинникова»",
+  "email": "kapiton20@example.org",
+  "faker_seed": 798487,
+  "first_name": "Максимильян",
+  "last_name": "Самсонов",
+  "middle_name": "Ильинична",
+  "password": "m_9BCpAblE",
+  "password2": "m_9BCpAblE",
+  "phone": "8 407 344 9753",
+  "salary": "175565"
+}

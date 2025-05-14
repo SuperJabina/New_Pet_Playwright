@@ -1,0 +1,15 @@
+{
+  "address": "п. Воркута, пер. Высотный, д. 5/8 стр. 1/8, 223495",
+  "age": "34",
+  "city": "п. Снежинск",
+  "company": "Емельянов и партнеры",
+  "email": "bdrozdova@example.net",
+  "faker_seed": 154445,
+  "first_name": "Ипат",
+  "last_name": "Абрамова",
+  "middle_name": "Борисович",
+  "password": "SV$A40Ag8Y",
+  "password2": "SV$A40Ag8Y",
+  "phone": "8 643 630 91 64",
+  "salary": "82069"
+}

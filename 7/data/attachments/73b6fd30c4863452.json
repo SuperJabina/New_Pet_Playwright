@@ -1,0 +1,15 @@
+{
+  "address": "ст. Нефтеюганск, ш. Павлова, д. 3/4 к. 6/2, 614530",
+  "age": "28",
+  "city": "к. Архангельск",
+  "company": "Зарубежнефть",
+  "email": "voronovlazar@example.org",
+  "faker_seed": 292247,
+  "first_name": "Прохор",
+  "last_name": "Сорокина",
+  "middle_name": "Васильевна",
+  "password": "hy#)I4DqwU",
+  "password2": "hy#)I4DqwU",
+  "phone": "8 (993) 099-7838",
+  "salary": "95976"
+}

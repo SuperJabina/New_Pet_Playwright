@@ -1,0 +1,15 @@
+{
+  "address": "д. Воронеж, ш. Высоцкого, д. 3, 943888",
+  "age": "21",
+  "city": "клх Тырныауз",
+  "company": "РАО «Мясников»",
+  "email": "efremovstojan@example.org",
+  "faker_seed": 272264,
+  "first_name": "Максимильян",
+  "last_name": "Быкова",
+  "middle_name": "Гурьевич",
+  "password": "@P)2TWGcKk",
+  "password2": "@P)2TWGcKk",
+  "phone": "8 067 074 4445",
+  "salary": "53506"
+}

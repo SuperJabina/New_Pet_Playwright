@@ -1,0 +1,15 @@
+{
+  "address": "г. Великий Устюг, наб. Гастелло, д. 8/5 к. 4/6, 049305",
+  "age": "30",
+  "city": "д. Кежма",
+  "company": "Лаборатория Касперского",
+  "email": "ljudmila50@example.com",
+  "faker_seed": 603374,
+  "first_name": "Семен",
+  "last_name": "Мухина",
+  "middle_name": "Ждановна",
+  "password": "N#5HRKc7Aa",
+  "password2": "N#5HRKc7Aa",
+  "phone": "82036327250",
+  "salary": "109144"
+}

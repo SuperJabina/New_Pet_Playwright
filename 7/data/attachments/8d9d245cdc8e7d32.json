@@ -1,0 +1,15 @@
+{
+  "address": "ст. Брянск, ш. Шолохова, д. 6/6 к. 69, 155087",
+  "age": "45",
+  "city": "п. Сухиничи",
+  "company": "АСЦ-Холдинг",
+  "email": "lapincheslav@example.org",
+  "faker_seed": 332170,
+  "first_name": "Любим",
+  "last_name": "Зуева",
+  "middle_name": "Ивановна",
+  "password": "y%K7R8jCk5",
+  "password2": "y%K7R8jCk5",
+  "phone": "+7 (313) 870-3037",
+  "salary": "135139"
+}

@@ -1,0 +1,15 @@
+{
+  "address": "ст. Партизанск, пер. Кузнецкий, д. 6 к. 9, 045236",
+  "age": "46",
+  "city": "клх Оленегорск (Якут.)",
+  "company": "РАО «Кузнецова Елисеева»",
+  "email": "viktornekrasov@example.org",
+  "faker_seed": 62932,
+  "first_name": "Арефий",
+  "last_name": "Максимов",
+  "middle_name": "Владиславовна",
+  "password": "%9coUgioFh",
+  "password2": "%9coUgioFh",
+  "phone": "8 872 915 67 67",
+  "salary": "170018"
+}

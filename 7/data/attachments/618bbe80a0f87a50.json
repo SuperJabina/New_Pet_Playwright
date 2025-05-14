@@ -1,0 +1,15 @@
+{
+  "address": "д. Сибай, пер. Лазурный, д. 230 к. 745, 267701",
+  "age": "28",
+  "city": "с. Котлас",
+  "company": "РАО «Дорофеева»",
+  "email": "krjukovafevronija@example.net",
+  "faker_seed": 599594,
+  "first_name": "Остромир",
+  "last_name": "Тихонов",
+  "middle_name": "Станиславовна",
+  "password": "avE0%VzDy#",
+  "password2": "avE0%VzDy#",
+  "phone": "8 (696) 277-1523",
+  "salary": "18043"
+}

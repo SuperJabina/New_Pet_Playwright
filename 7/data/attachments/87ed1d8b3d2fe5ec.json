@@ -1,0 +1,15 @@
+{
+  "address": "г. Макушино, пер. Социалистический, д. 29 стр. 6, 374738",
+  "age": "22",
+  "city": "ст. Горно-Алтайск",
+  "company": "АО «Дементьева Селезнев»",
+  "email": "kabanovaraisa@example.net",
+  "faker_seed": 217200,
+  "first_name": "Ян",
+  "last_name": "Фомичев",
+  "middle_name": "Гертрудович",
+  "password": "Kr@mu4ViL!",
+  "password2": "Kr@mu4ViL!",
+  "phone": "8 (943) 093-95-15",
+  "salary": "81398"
+}

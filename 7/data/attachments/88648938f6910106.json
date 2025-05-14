@@ -1,0 +1,15 @@
+{
+  "address": "клх Валаам, алл. Верхняя, д. 6 стр. 49, 782620",
+  "age": "20",
+  "city": "г. Александровск",
+  "company": "АО «Носова-Лаврентьев»",
+  "email": "fadeevignati@example.net",
+  "faker_seed": 922226,
+  "first_name": "Наина",
+  "last_name": "Кириллова",
+  "middle_name": "Изотович",
+  "password": "5#A!AIcV@m",
+  "password2": "5#A!AIcV@m",
+  "phone": "81929601478",
+  "salary": "98500"
+}

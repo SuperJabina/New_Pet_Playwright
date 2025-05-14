@@ -1,0 +1,15 @@
+{
+  "address": "ст. Пермь, наб. Лермонтова, д. 8, 848160",
+  "age": "21",
+  "city": "г. Тобольск",
+  "company": "ЗАО «Селиверстов Сафонова»",
+  "email": "disakov@example.net",
+  "faker_seed": 877055,
+  "first_name": "Антонина",
+  "last_name": "Никитин",
+  "middle_name": "Феодосьевич",
+  "password": "IA+1Pvo0u&",
+  "password2": "IA+1Pvo0u&",
+  "phone": "8 (074) 141-5224",
+  "salary": "142775"
+}

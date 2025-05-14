@@ -1,0 +1,15 @@
+{
+  "address": "к. Армавир, ш. Вишневое, д. 8/6 к. 422, 800682",
+  "age": "50",
+  "city": "к. Арсеньев",
+  "company": "ГК СНС",
+  "email": "fokakiselev@example.org",
+  "faker_seed": 583113,
+  "first_name": "Афиноген",
+  "last_name": "Тимофеев",
+  "middle_name": "Гордеевич",
+  "password": "^7U7fMat3)",
+  "password2": "^7U7fMat3)",
+  "phone": "+7 374 357 6630",
+  "salary": "130684"
+}

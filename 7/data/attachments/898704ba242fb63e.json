@@ -1,0 +1,15 @@
+{
+  "address": "д. Миасс, ул. Короткая, д. 2 к. 519, 286846",
+  "age": "50",
+  "city": "п. Глазов",
+  "company": "ООО «Цветков, Боброва и Потапов»",
+  "email": "maksimiljan27@example.com",
+  "faker_seed": 238430,
+  "first_name": "Варлаам",
+  "last_name": "Петров",
+  "middle_name": "Аскольдовна",
+  "password": "J6Ekvov_^H",
+  "password2": "J6Ekvov_^H",
+  "phone": "+7 (635) 853-5622",
+  "salary": "127913"
+}

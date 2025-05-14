@@ -1,0 +1,15 @@
+{
+  "address": "клх Инта, ул. Амурская, д. 659 к. 7, 850753",
+  "age": "18",
+  "city": "к. Сковородино",
+  "company": "НПО «Родионов»",
+  "email": "mishinivan@example.net",
+  "faker_seed": 150892,
+  "first_name": "Гаврила",
+  "last_name": "Мишина",
+  "middle_name": "Феликсович",
+  "password": "@1NTyv*7FN",
+  "password2": "@1NTyv*7FN",
+  "phone": "+7 656 700 36 18",
+  "salary": "44631"
+}

@@ -1,0 +1,15 @@
+{
+  "address": "клх Курчатов, бул. Микрорайон, д. 3, 153574",
+  "age": "66",
+  "city": "к. Мурманск",
+  "company": "ОАО «Пахомов-Петухов»",
+  "email": "izotlukin@example.org",
+  "faker_seed": 133148,
+  "first_name": "Тимур",
+  "last_name": "Субботина",
+  "middle_name": "Давидович",
+  "password": "7*R13fAwpg",
+  "password2": "7*R13fAwpg",
+  "phone": "8 (179) 150-1594",
+  "salary": "35761"
+}

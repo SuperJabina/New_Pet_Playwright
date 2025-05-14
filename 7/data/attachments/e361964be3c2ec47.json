@@ -1,0 +1,15 @@
+{
+  "address": "ст. Новомосковск, пер. Сплавный, д. 9 к. 4/7, 836672",
+  "age": "38",
+  "city": "г. Адыгейск",
+  "company": "ИП «Кузнецова-Одинцова»",
+  "email": "nikita1975@example.com",
+  "faker_seed": 780117,
+  "first_name": "Анастасия",
+  "last_name": "Яковлева",
+  "middle_name": "Фокич",
+  "password": "+y_6EwmVz$",
+  "password2": "+y_6EwmVz$",
+  "phone": "+7 (873) 271-84-77",
+  "salary": "115217"
+}
