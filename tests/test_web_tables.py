@@ -69,7 +69,7 @@ class TestRegistrationForm:
 
         # Шаг 1: Открываем страницу Web Tables и нажимаем кнопку добавления
         webtable_page.open(AppRoute.WEB_TABLES)
-        webtable_page.page.wait_for_timeout(1000)
+        webtable_page.page.wait_for_timeout(2000)
         webtable_page.add_button.click()
         # Проверяем видимость формы регистрации
         form_visible = webtable_page.registration_form.check_visible()
